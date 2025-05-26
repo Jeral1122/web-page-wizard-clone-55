@@ -11,7 +11,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl mb-8 animate-fade-in text-center text-orange-300 font-semibold md:text-6xl">
+          <h1 className="text-5xl mb-8 animate-fade-in text-center text-orange-300 md:text-6xl font-bold">
             <span className="gradient-text">AI Voice Facilitators</span>{' '}
             <span className="text-white">That</span>{' '}
             <span className="gradient-text">Sell, Book,</span>{' '}
