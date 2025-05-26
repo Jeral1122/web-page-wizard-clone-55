@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
-import { Phone, Calendar, Users, Settings, CircleDollarSign } from 'lucide-react';
+import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -33,7 +33,7 @@ const Index = () => {
           <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-6 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
             animationDelay: '0.4s'
           }}>
-            <Link to="/contact">Book a Call</Link>
+            <a href="#contact">Book a Call</a>
           </Button>
         </div>
       </section>
@@ -61,8 +61,8 @@ const Index = () => {
             
             <div className="relative">
               <div className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 p-8 rounded-2xl animate-float">
-                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <Phone className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">AI Voice Agent</h3>
                 <p className="text-gray-400 text-center">24/7 intelligent conversations</p>
@@ -83,36 +83,36 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <Settings className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <BarChart className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 1: Strategy</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Strategy</h3>
                 <p className="text-gray-300">
                   We map out perfect conversation flows to match your goals.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <CircleDollarSign className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <Database className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 2: Data Integration</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Data Integration</h3>
                 <p className="text-gray-300">
                   Plug in your CRM, calendars, and customer info—no dev work needed.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <Users className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <Rocket className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 3: Deployment</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Deployment</h3>
                 <p className="text-gray-300">
                   Launch your AI agent across calls, SMS, and meetings in minutes.
                 </p>
@@ -133,48 +133,48 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Phone className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Instant Call Handling</h3>
+                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Instant Call Handling</h3>
                 <p className="text-gray-400 text-sm">
                   Our agents pick up every call in real time, so you never miss a lead again.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Calendar className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Clock className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Effortless Appointment Booking</h3>
+                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Effortless Appointment Booking</h3>
                 <p className="text-gray-400 text-sm">
                   Automate scheduling and confirmations—clients book in seconds, hassle-free.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Users className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Users className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">Proactive Lead Engagement</h3>
+                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Proactive Lead Engagement</h3>
                 <p className="text-gray-400 text-sm">
                   Engage new prospects with smart, natural conversations that qualify and follow up.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <CircleDollarSign className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <DollarSign className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">24/7 Sales & Upsell Support</h3>
+                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">24/7 Sales & Upsell Support</h3>
                 <p className="text-gray-400 text-sm">
                   Turn every call into an opportunity—AI-driven pitches and cross-sells, round-the-clock.
                 </p>
@@ -187,19 +187,21 @@ const Index = () => {
       {/* Services Cards Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
-            Tailored For Your Business
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Tailored For Your </span>
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Business</span>
           </h2>
           <p className="text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Our Services</p>
-          <div className="inline-block bg-cyan-400 text-slate-900 px-4 py-1 rounded-full text-sm mb-12">
+          <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm mb-12">
             2 services
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
+            <Card className="bg-gradient-to-br from-cyan-600/20 to-blue-700/20 backdrop-blur-lg border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/inbound">
-                <CardContent className="p-0 overflow-hidden rounded-lg">
-                  <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
+                <CardContent className="p-0">
+                  <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative">
+                    <div className="absolute top-4 right-4 w-4 h-4 bg-cyan-400 rounded-full"></div>
                     <Phone className="w-16 h-16 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
@@ -215,11 +217,12 @@ const Index = () => {
               </Link>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
+            <Card className="bg-gradient-to-br from-purple-600/20 to-pink-700/20 backdrop-blur-lg border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/outbound">
-                <CardContent className="p-0 overflow-hidden rounded-lg">
-                  <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
-                    <Phone className="w-16 h-16 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                <CardContent className="p-0">
+                  <div className="h-64 bg-gradient-to-br from-purple-600/30 to-pink-700/30 flex items-center justify-center relative">
+                    <div className="absolute top-4 right-4 w-4 h-4 bg-purple-400 rounded-full"></div>
+                    <Phone className="w-16 h-16 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
@@ -249,7 +252,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
                 <div className="mb-6">
@@ -281,9 +284,9 @@ const Index = () => {
             </Card>
 
             {/* Pro Plan */}
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-cyan-400/50 hover:border-cyan-400/70 transition-all duration-300 relative">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-purple-400/50 hover:border-purple-400/70 transition-all duration-300 relative rounded-2xl">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-cyan-400 text-slate-900 px-4 py-1 rounded-full text-sm font-semibold">
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
                   Most Popular
                 </span>
               </div>
@@ -318,7 +321,7 @@ const Index = () => {
             </Card>
 
             {/* Enterprise Plan */}
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
                 <div className="mb-6">
@@ -363,10 +366,10 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
-                  <Settings className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <MessageSquare className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Neural Text-to-Speech</h3>
                 <p className="text-gray-300">
@@ -375,10 +378,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <Mic className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Automatic Speech Recognition</h3>
                 <p className="text-gray-300">
@@ -387,10 +390,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <Brain className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Natural Language Understanding</h3>
                 <p className="text-gray-300">
@@ -399,10 +402,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
+            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
-                  <CircleDollarSign className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Conversational AI</h3>
                 <p className="text-gray-300">
@@ -422,7 +425,7 @@ const Index = () => {
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
+            <AccordionItem value="item-1" className="bg-slate-800/30 backdrop-blur-lg border border-cyan-400/30 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 What can VOCLY AI actually do?
               </AccordionTrigger>
@@ -431,7 +434,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-2" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
+            <AccordionItem value="item-2" className="bg-slate-800/30 backdrop-blur-lg border border-cyan-400/30 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 How is this different from other AI tools?
               </AccordionTrigger>
@@ -440,7 +443,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-3" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
+            <AccordionItem value="item-3" className="bg-slate-800/30 backdrop-blur-lg border border-cyan-400/30 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 Is my data secure with VOCLY AI?
               </AccordionTrigger>
@@ -449,7 +452,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-4" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
+            <AccordionItem value="item-4" className="bg-slate-800/30 backdrop-blur-lg border border-cyan-400/30 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 What kind of support do you offer?
               </AccordionTrigger>
@@ -458,7 +461,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-5" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
+            <AccordionItem value="item-5" className="bg-slate-800/30 backdrop-blur-lg border border-cyan-400/30 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 How quickly can I get started?
               </AccordionTrigger>
