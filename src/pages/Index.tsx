@@ -1,25 +1,17 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, Settings, CircleDollarSign } from 'lucide-react';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-fade-in">
+          <h1 className="text-5xl mb-8 animate-fade-in text-center text-orange-300 font-semibold md:text-6xl">
             <span className="gradient-text">AI Voice Facilitators</span>{' '}
             <span className="text-white">That</span>{' '}
             <span className="gradient-text">Sell, Book,</span>{' '}
@@ -32,15 +24,15 @@ const Index = () => {
             <span className="gradient-text">Don't Have To</span>
           </h1>
           
-          <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
-          <Button 
-            asChild
-            className="gradient-bg text-white px-8 py-6 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 animate-scale-in"
-            style={{animationDelay: '0.4s'}}
-          >
+          <Button asChild className="gradient-bg text-white px-8 py-6 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 animate-scale-in" style={{
+          animationDelay: '0.4s'
+        }}>
             <Link to="/contact">Book a Call</Link>
           </Button>
         </div>
@@ -59,10 +51,7 @@ const Index = () => {
                 AI voice agents are computer programs that can talk and listen like a human using artificial intelligence. They understand spoken words, process the information, and respond in a natural way. You can find them in virtual assistants like Siri or Alexa, customer service bots, and even call centers. These voice agents help automate tasks, answer questions, and make communication easier.
               </p>
               
-              <Button 
-                asChild
-                className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-              >
+              <Button asChild className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
                 <Link to="/demo" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   Try our demo
@@ -488,10 +477,7 @@ const Index = () => {
             Let's Connect
           </h2>
           
-          <Button 
-            asChild
-            className="gradient-bg text-white px-12 py-6 text-xl font-semibold rounded-xl hover:scale-105 transition-all duration-300"
-          >
+          <Button asChild className="gradient-bg text-white px-12 py-6 text-xl font-semibold rounded-xl hover:scale-105 transition-all duration-300">
             <Link to="/contact">Get Started Today</Link>
           </Button>
         </div>
@@ -530,8 +516,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
