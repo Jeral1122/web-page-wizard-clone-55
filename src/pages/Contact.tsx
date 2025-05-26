@@ -155,7 +155,7 @@ const Contact = () => {
               <div className="text-gray-300">Availability</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text mb-2">< 48hrs</div>
+              <div className="text-3xl font-bold gradient-text mb-2">{"< 48hrs"}</div>
               <div className="text-gray-300">Setup Time</div>
             </div>
             <div className="text-center">
