@@ -1,38 +1,38 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, Settings, CircleDollarSign } from 'lucide-react';
+
 const Index = () => {
-  return <div className="min-h-screen bg-slate-900">
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-20 px-4">
+      <section id="home" className="pt-24 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl mb-8 animate-fade-in text-center text-orange-300 md:text-6xl font-bold">
-            <span className="gradient-text">AI Voice Facilitators</span>{' '}
-            <span className="text-white">That</span>{' '}
-            <span className="gradient-text">Sell, Book,</span>{' '}
-            <span className="text-white">and</span>
+          <h1 className="text-5xl mb-8 animate-fade-in text-center md:text-6xl font-bold">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+              AI Voice Facilitators That Sell, Book, and Handle Business —
+            </span>
             <br />
-            <span className="gradient-text">Handle Business</span>{' '}
-            <span className="text-white">—</span>
-            <br />
-            <span className="text-white">So You</span>{' '}
-            <span className="gradient-text">Don't Have To</span>
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+              So You Don't Have To
+            </span>
           </h1>
           
           <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto animate-fade-in" style={{
-          animationDelay: '0.2s'
-        }}>
+            animationDelay: '0.2s'
+          }}>
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
-          <Button asChild className="gradient-bg text-white px-8 py-6 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 animate-scale-in" style={{
-          animationDelay: '0.4s'
-        }}>
+          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-6 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
+            animationDelay: '0.4s'
+          }}>
             <Link to="/contact">Book a Call</Link>
           </Button>
         </div>
@@ -41,7 +41,7 @@ const Index = () => {
       {/* What are AI Voice Agents Section */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-12">
             What are AI Voice Agents?
           </h2>
           
@@ -51,18 +51,18 @@ const Index = () => {
                 AI voice agents are computer programs that can talk and listen like a human using artificial intelligence. They understand spoken words, process the information, and respond in a natural way. You can find them in virtual assistants like Siri or Alexa, customer service bots, and even call centers. These voice agents help automate tasks, answer questions, and make communication easier.
               </p>
               
-              <Button asChild className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+              <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
                 <Link to="/demo" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4 text-slate-900" />
                   Try our demo
                 </Link>
               </Button>
             </div>
             
             <div className="relative">
-              <div className="glass-card p-8 rounded-2xl animate-float">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <Phone className="w-8 h-8 text-white" />
+              <div className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 p-8 rounded-2xl animate-float">
+                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Phone className="w-8 h-8 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">AI Voice Agent</h3>
                 <p className="text-gray-400 text-center">24/7 intelligent conversations</p>
@@ -72,10 +72,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* VOCLY AI Process Section */}
-      <section className="py-20 px-4">
+      {/* Services Section */}
+      <section id="services" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
             VOCLY AI: Your Secret Weapon for Business Growth
           </h2>
           <p className="text-xl text-gray-300 mb-16">
@@ -83,36 +83,36 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
                   <Settings className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-2xl font-bold gradient-text mb-4">Step 1: Strategy</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 1: Strategy</h3>
                 <p className="text-gray-300">
                   We map out perfect conversation flows to match your goals.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <CircleDollarSign className="w-8 h-8 text-blue-400" />
+                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <CircleDollarSign className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-2xl font-bold gradient-text mb-4">Step 2: Data Integration</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 2: Data Integration</h3>
                 <p className="text-gray-300">
                   Plug in your CRM, calendars, and customer info—no dev work needed.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <Users className="w-8 h-8 text-purple-400" />
+                <div className="w-16 h-16 bg-transparent rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <Users className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-2xl font-bold gradient-text mb-4">Step 3: Deployment</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Step 3: Deployment</h3>
                 <p className="text-gray-300">
                   Launch your AI agent across calls, SMS, and meetings in minutes.
                 </p>
@@ -125,7 +125,7 @@ const Index = () => {
       {/* Why VOCLY AI Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Why VOCLY AI?
           </h2>
           <p className="text-xl text-gray-300 mb-16 max-w-4xl mx-auto">
@@ -133,9 +133,9 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Phone className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Instant Call Handling</h3>
@@ -145,10 +145,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Calendar className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Calendar className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Effortless Appointment Booking</h3>
                 <p className="text-gray-400 text-sm">
@@ -157,10 +157,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Users className="w-6 h-6 text-purple-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Users className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Proactive Lead Engagement</h3>
                 <p className="text-gray-400 text-sm">
@@ -169,10 +169,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-green-500/20 hover:border-green-500/40 transition-all duration-300 hover:scale-105">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <CircleDollarSign className="w-6 h-6 text-green-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <CircleDollarSign className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">24/7 Sales & Upsell Support</h3>
                 <p className="text-gray-400 text-sm">
@@ -184,19 +184,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Cards Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Tailored For Your Business
           </h2>
-          <p className="text-xl gradient-text mb-4">Our Services</p>
-          <div className="inline-block bg-purple-600 text-white px-4 py-1 rounded-full text-sm mb-12">
+          <p className="text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Our Services</p>
+          <div className="inline-block bg-cyan-400 text-slate-900 px-4 py-1 rounded-full text-sm mb-12">
             2 services
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
               <Link to="/inbound">
                 <CardContent className="p-0 overflow-hidden rounded-lg">
                   <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
@@ -207,7 +207,7 @@ const Index = () => {
                     <p className="text-gray-300 mb-6">
                       Human like virtual receptionist to handle your incoming calls.
                     </p>
-                    <Button className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-semibold">
+                    <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
                       Get Started →
                     </Button>
                   </div>
@@ -215,18 +215,18 @@ const Index = () => {
               </Link>
             </Card>
             
-            <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer">
               <Link to="/outbound">
                 <CardContent className="p-0 overflow-hidden rounded-lg">
                   <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
-                    <Phone className="w-16 h-16 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                    <Phone className="w-16 h-16 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
                     <p className="text-gray-300 mb-6">
                       Fully automate reminders, follow-ups & more.
                     </p>
-                    <Button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold">
+                    <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
                       Get Started →
                     </Button>
                   </div>
@@ -238,9 +238,9 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4">
+      <section id="pricing" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-300 mb-16">
@@ -249,7 +249,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
-            <Card className="glass-card border-gray-500/20 hover:border-gray-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
                 <div className="mb-6">
@@ -274,21 +274,21 @@ const Index = () => {
                     <span className="text-white">1,000 mins</span>
                   </div>
                 </div>
-                <Button asChild className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-semibold">
-                  <Link to="/pricing">Unlock</Link>
+                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
+                  Unlock
                 </Button>
               </CardContent>
             </Card>
 
             {/* Pro Plan */}
-            <Card className="glass-card border-cyan-500/50 hover:border-cyan-500/70 transition-all duration-300 relative">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-cyan-400/50 hover:border-cyan-400/70 transition-all duration-300 relative">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-cyan-500 text-slate-900 px-4 py-1 rounded-full text-sm font-semibold">
+                <span className="bg-cyan-400 text-slate-900 px-4 py-1 rounded-full text-sm font-semibold">
                   Most Popular
                 </span>
               </div>
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold gradient-text mb-4">Pro</h3>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Pro</h3>
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-white">$0.4</span>
                   <span className="text-gray-400">/min</span>
@@ -311,14 +311,14 @@ const Index = () => {
                     <span className="text-white">10,000 mins</span>
                   </div>
                 </div>
-                <Button asChild className="w-full gradient-bg text-white font-semibold">
-                  <Link to="/pricing">Unlock</Link>
+                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
+                  Unlock
                 </Button>
               </CardContent>
             </Card>
 
             {/* Enterprise Plan */}
-            <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
                 <div className="mb-6">
@@ -343,8 +343,8 @@ const Index = () => {
                     <span className="text-white">25,000+ mins</span>
                   </div>
                 </div>
-                <Button asChild className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold">
-                  <Link to="/contact">Contact Sales</Link>
+                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
+                  Contact Sales
                 </Button>
               </CardContent>
             </Card>
@@ -355,7 +355,7 @@ const Index = () => {
       {/* Technology Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
             The Technology Behind Our AI Voices
           </h2>
           <p className="text-xl text-gray-300 mb-16 max-w-4xl mx-auto">
@@ -363,9 +363,9 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
                   <Settings className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Neural Text-to-Speech</h3>
@@ -375,10 +375,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-blue-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Automatic Speech Recognition</h3>
                 <p className="text-gray-300">
@@ -387,10 +387,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-purple-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Natural Language Understanding</h3>
                 <p className="text-gray-300">
@@ -399,10 +399,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 hover:border-cyan-400/40 transition-all duration-300">
               <CardContent className="p-8 text-left">
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <CircleDollarSign className="w-6 h-6 text-green-400" />
+                <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center mb-4">
+                  <CircleDollarSign className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Conversational AI</h3>
                 <p className="text-gray-300">
@@ -417,12 +417,12 @@ const Index = () => {
       {/* FAQ Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-16 text-center">
             Common Questions
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="glass-card border-cyan-500/20 rounded-lg px-6">
+            <AccordionItem value="item-1" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 What can VOCLY AI actually do?
               </AccordionTrigger>
@@ -431,7 +431,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-2" className="glass-card border-blue-500/20 rounded-lg px-6">
+            <AccordionItem value="item-2" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 How is this different from other AI tools?
               </AccordionTrigger>
@@ -440,7 +440,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-3" className="glass-card border-purple-500/20 rounded-lg px-6">
+            <AccordionItem value="item-3" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 Is my data secure with VOCLY AI?
               </AccordionTrigger>
@@ -449,7 +449,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-4" className="glass-card border-green-500/20 rounded-lg px-6">
+            <AccordionItem value="item-4" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 What kind of support do you offer?
               </AccordionTrigger>
@@ -458,7 +458,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-5" className="glass-card border-yellow-500/20 rounded-lg px-6">
+            <AccordionItem value="item-5" className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-lg px-6">
               <AccordionTrigger className="text-cyan-400 hover:text-cyan-300 text-left">
                 How quickly can I get started?
               </AccordionTrigger>
@@ -471,14 +471,14 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4">
+      <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-16">
             Let's Connect
           </h2>
           
-          <Button asChild className="gradient-bg text-white px-12 py-6 text-xl font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-            <Link to="/contact">Get Started Today</Link>
+          <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-12 py-6 text-xl font-semibold rounded-full hover:scale-105 transition-all duration-300">
+            Get Started Today
           </Button>
         </div>
       </section>
@@ -488,7 +488,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold gradient-text mb-4">VOCLY AI</h3>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">VOCLY AI</h3>
               <p className="text-gray-400 mb-6">
                 Reimagining business, one call at a time.
               </p>
@@ -502,11 +502,11 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
               <div className="space-y-2">
-                <Link to="/" className="block text-gray-400 hover:text-white transition-colors">Home</Link>
-                <Link to="/services" className="block text-gray-400 hover:text-white transition-colors">Services</Link>
+                <a href="#home" className="block text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="#services" className="block text-gray-400 hover:text-white transition-colors">Services</a>
                 <Link to="/demo" className="block text-gray-400 hover:text-white transition-colors">Demo</Link>
-                <Link to="/pricing" className="block text-gray-400 hover:text-white transition-colors">Pricing</Link>
-                <Link to="/contact" className="block text-gray-400 hover:text-white transition-colors">Contact</Link>
+                <a href="#pricing" className="block text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="#contact" className="block text-gray-400 hover:text-white transition-colors">Contact</a>
               </div>
             </div>
           </div>
@@ -516,6 +516,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

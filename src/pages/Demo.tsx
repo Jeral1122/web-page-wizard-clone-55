@@ -1,9 +1,9 @@
 
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
-import { Phone, Play, Calendar } from 'lucide-react';
+import { Phone, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Demo = () => {
   return (
@@ -12,58 +12,48 @@ const Demo = () => {
       
       <div className="pt-24 pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
-            Demo Coming Soon
-          </h1>
-          <p className="text-xl text-gray-300 mb-12">
-            Experience our AI voice technology in action. Interactive demo will be available soon.
-          </p>
+          <div className="mb-8">
+            <Link to="/" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
 
-          <Card className="glass-card border-cyan-500/20 mb-12">
-            <CardContent className="p-12">
-              <div className="w-24 h-24 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-slow">
-                <Play className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-4">Interactive Demo</h2>
-              <p className="text-gray-300 mb-6">
-                Try our AI voice agent with a live phone call simulation. Test conversation flows, 
-                appointment booking, and lead qualification in real-time.
-              </p>
-              <div className="text-cyan-400 font-semibold">Coming Soon</div>
-            </CardContent>
-          </Card>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="glass-card border-blue-500/20">
-              <CardContent className="p-8 text-center">
-                <Phone className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Voice Call Demo</h3>
-                <p className="text-gray-300 mb-4">
-                  Experience a full conversation with our AI agent
-                </p>
-                <div className="text-blue-400 font-semibold">Available Soon</div>
+          <div className="animate-fade-in">
+            <div className="w-24 h-24 bg-transparent rounded-full flex items-center justify-center mb-8 mx-auto animate-pulse-slow">
+              <Phone className="w-12 h-12 text-cyan-400" />
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
+              Demo Coming Soon
+            </h1>
+            
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              We're putting the finishing touches on our interactive AI voice demo. 
+              Experience the future of business communication firsthand.
+            </p>
+            
+            <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 max-w-md mx-auto mb-8">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-white mb-4">What to Expect</h3>
+                <ul className="text-gray-300 space-y-2 text-left">
+                  <li>• Live AI voice interaction</li>
+                  <li>• Real-time conversation flow</li>
+                  <li>• Appointment booking simulation</li>
+                  <li>• Lead qualification process</li>
+                </ul>
               </CardContent>
             </Card>
             
-            <Card className="glass-card border-purple-500/20">
-              <CardContent className="p-8 text-center">
-                <Calendar className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Booking Simulation</h3>
-                <p className="text-gray-300 mb-4">
-                  See how seamlessly appointments get scheduled
-                </p>
-                <div className="text-purple-400 font-semibold">Available Soon</div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="space-y-4">
-            <p className="text-gray-400">
-              Want to see VOCLY AI in action right now?
-            </p>
-            <Button asChild className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-              <Link to="/contact">Schedule a Live Demo</Link>
-            </Button>
+            <div className="space-y-4">
+              <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300">
+                <Link to="/#contact">Get Notified When Ready</Link>
+              </Button>
+              
+              <div className="text-gray-400">
+                <p>Or book a personal demo call with our team</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
