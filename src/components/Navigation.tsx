@@ -1,4 +1,3 @@
-
 import { useState, useCallback, useMemo } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -50,55 +49,6 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="min-h-screen bg-slate-950 flex flex-col items-center justify-center px-4">
-        <motion.h1
-          initial={{ opacity: 0.5, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="text-5xl mb-8 animate-fade-in text-center md:text-6xl font-bold"
-        >
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-            AI Voice Facilitators That Sell, Book, and Handle Business —
-          </span>
-          <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-            So You Don't Have To
-          </span>
-        </motion.h1>
-        
-        <motion.p 
-          initial={{ opacity: 0.5, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.5,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto animate-fade-in"
-        >
-          Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0.5, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.7,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-        >
-          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-6 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in">
-            <a href="#contact">Book a Call</a>
-          </Button>
-        </motion.div>
-      </section>
-      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-lg border-b border-slate-800 safe-area">
         <div className="responsive-container">
