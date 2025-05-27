@@ -7,7 +7,6 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-
 const Index = () => {
   useEffect(() => {
     // Load Calendly script dynamically
@@ -16,7 +15,6 @@ const Index = () => {
     script.async = true;
     script.type = 'text/javascript';
     document.body.appendChild(script);
-
     return () => {
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
@@ -25,7 +23,6 @@ const Index = () => {
       }
     };
   }, []);
-
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
@@ -39,55 +36,63 @@ const Index = () => {
           <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-[-30%] rounded-full bg-cyan-500/60 opacity-80 blur-3xl" />
 
           {/* Lamp effect */}
-          <motion.div
-            initial={{ width: "8rem" }}
-            viewport={{ once: true }}
-            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-            whileInView={{ width: "16rem" }}
-            className="absolute top-0 z-30 h-36 -translate-y-[20%] rounded-full bg-cyan-400/60 blur-2xl"
-          />
+          <motion.div initial={{
+          width: "8rem"
+        }} viewport={{
+          once: true
+        }} transition={{
+          ease: "easeInOut",
+          delay: 0.3,
+          duration: 0.8
+        }} whileInView={{
+          width: "16rem"
+        }} className="absolute top-0 z-30 h-36 -translate-y-[20%] rounded-full bg-cyan-400/60 blur-2xl" />
 
           {/* Top line */}
-          <motion.div
-            initial={{ width: "15rem" }}
-            viewport={{ once: true }}
-            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-            whileInView={{ width: "30rem" }}
-            className="absolute inset-auto z-50 h-0.5 -translate-y-[-10%] bg-cyan-400/60"
-          />
+          <motion.div initial={{
+          width: "15rem"
+        }} viewport={{
+          once: true
+        }} transition={{
+          ease: "easeInOut",
+          delay: 0.3,
+          duration: 0.8
+        }} whileInView={{
+          width: "30rem"
+        }} className="absolute inset-auto z-50 h-0.5 -translate-y-[-10%] bg-cyan-400/60" />
 
           {/* Left gradient cone */}
-          <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "30rem" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            style={{
-              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-            }}
-            className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-cyan-500/60 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
-          >
+          <motion.div initial={{
+          opacity: 0.5,
+          width: "15rem"
+        }} whileInView={{
+          opacity: 1,
+          width: "30rem"
+        }} transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut"
+        }} style={{
+          backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`
+        }} className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-cyan-500/60 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]">
             <div className="absolute w-[100%] left-0 bg-slate-900 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
             <div className="absolute w-40 h-[100%] left-0 bg-slate-900 bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
           </motion.div>
 
           {/* Right gradient cone */}
-          <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "30rem" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            style={{
-              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-            }}
-            className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-cyan-500/60 [--conic-position:from_290deg_at_center_top]"
-          >
+          <motion.div initial={{
+          opacity: 0.5,
+          width: "15rem"
+        }} whileInView={{
+          opacity: 1,
+          width: "30rem"
+        }} transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut"
+        }} style={{
+          backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`
+        }} className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-cyan-500/60 [--conic-position:from_290deg_at_center_top]">
             <div className="absolute w-40 h-[100%] right-0 bg-slate-900 bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
             <div className="absolute w-[100%] right-0 bg-slate-900 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
           </motion.div>
@@ -114,7 +119,7 @@ const Index = () => {
           <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
           animationDelay: '0.4s'
         }}>
-            <a href="#contact">Book a Call</a>
+            <a href="#contact" className="mx-[240px] my-0 px-0 py-0">Book a Call</a>
           </Button>
         </div>
       </section>
@@ -601,14 +606,10 @@ const Index = () => {
           
           {/* Calendly Widget */}
           <div className="max-w-4xl mx-auto">
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/muhammadjeralkhan/new-meeting" 
-              style={{
-                minWidth: '320px', 
-                height: '700px'
-              }}
-            ></div>
+            <div className="calendly-inline-widget" data-url="https://calendly.com/muhammadjeralkhan/new-meeting" style={{
+            minWidth: '320px',
+            height: '700px'
+          }}></div>
           </div>
         </div>
       </section>
@@ -673,5 +674,4 @@ const Index = () => {
       <Footer />
     </div>;
 };
-
 export default Index;
