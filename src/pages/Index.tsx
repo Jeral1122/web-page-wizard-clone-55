@@ -584,11 +584,7 @@ const Index = () => {
               <p className="text-gray-400 mb-6">
                 Reimagining business, one call at a time.
               </p>
-              <div className="flex space-x-4">
-                <div className="w-8 h-8 bg-slate-800 rounded hover:bg-slate-700 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 bg-slate-800 rounded hover:bg-slate-700 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 bg-slate-800 rounded hover:bg-slate-700 transition-colors cursor-pointer"></div>
-              </div>
+              
             </div>
             
             <div>
