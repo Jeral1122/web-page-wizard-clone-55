@@ -240,7 +240,7 @@ const Index = () => {
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in mx-0 my-[10px]">
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-300 mb-16 animate-fade-in" style={{
