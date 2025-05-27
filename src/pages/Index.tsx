@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -112,7 +111,7 @@ const Index = () => {
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
-          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-6 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
+          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
           animationDelay: '0.4s'
         }}>
             <a href="#contact">Book a Call</a>
