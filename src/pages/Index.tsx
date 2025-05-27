@@ -185,7 +185,7 @@ const Index = () => {
       <section id="tailored-business" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Tailored For Your </span>
+            <span className="text-[#2bb4f1]">Tailored For Your </span>
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Business</span>
           </h2>
           <p className="text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Our Services</p>
