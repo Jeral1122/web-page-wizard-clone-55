@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
+
 const Index = () => {
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
@@ -508,7 +509,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Contact Section - Moved above FAQ */}
+      <section id="contact" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-16">
+            Let's Connect
+          </h2>
+          
+          {/* Calendly Widget */}
+          <div className="max-w-4xl mx-auto">
+            <div className="calendly-inline-widget" data-url="https://calendly.com/muhammadjeralkhan/new-meeting" style={{minWidth: '320px', height: '700px'}}></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - Moved below Contact */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-16 text-center">
@@ -564,17 +580,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-16">
-            Let's Connect
-          </h2>
-          
-          
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t border-slate-800 py-12 px-4">
         <div className="max-w-7xl mx-auto">
@@ -606,4 +611,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
