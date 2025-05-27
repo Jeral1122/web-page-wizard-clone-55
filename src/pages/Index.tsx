@@ -4,10 +4,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield } from 'lucide-react';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       {/* Hero Section */}
@@ -24,14 +22,14 @@ const Index = () => {
           </h1>
           
           <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto animate-fade-in" style={{
-            animationDelay: '0.2s'
-          }}>
+          animationDelay: '0.2s'
+        }}>
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
           <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-6 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
-            animationDelay: '0.4s'
-          }}>
+          animationDelay: '0.4s'
+        }}>
             <a href="#contact">Book a Call</a>
           </Button>
         </div>
@@ -219,7 +217,7 @@ const Index = () => {
             <Card className="bg-gradient-to-br from-purple-600/20 to-pink-700/20 backdrop-blur-lg border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/outbound">
                 <CardContent className="p-0">
-                  <div className="h-64 bg-gradient-to-br from-purple-600/30 to-pink-700/30 flex items-center justify-center relative">
+                  <div className="<img src=\"pexels-yankrukov-7691739.jpg\" alt=\"Man in suit on phone\" width=\"600\">\n">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-purple-400 rounded-full"></div>
                     <Phone className="w-16 h-16 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
@@ -518,8 +516,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
