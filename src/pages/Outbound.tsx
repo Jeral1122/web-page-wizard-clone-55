@@ -81,11 +81,9 @@ const Outbound = () => {
                 </div>
               </div>
               
-              <Link to="/contact">
-                <Button className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                  Get Started
-                </Button>
-              </Link>
+              <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                Get Started
+              </Button>
             </div>
             
             <div className="relative">
