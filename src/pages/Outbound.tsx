@@ -221,7 +221,7 @@ const Outbound = () => {
 
                   <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
                     <AccordionItem value="item-3" className="border-none">
-                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold transition-colors text-[#2bb4f1]">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold transition-colors text-slate-50">
                         Is my data secure with VOCLY AI?
                       </AccordionTrigger>
                       <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
