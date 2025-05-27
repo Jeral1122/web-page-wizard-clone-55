@@ -1,3 +1,5 @@
+
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,6 +8,22 @@ import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
 
 const Index = () => {
+  useEffect(() => {
+    // Load Calendly script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
@@ -518,8 +536,11 @@ const Index = () => {
           
           {/* Calendly Widget */}
           <div className="max-w-4xl mx-auto">
-            <div className="calendly-inline-widget" data-url="https://calendly.com/muhammadjeralkhan/new-meeting" style={{minWidth: '320px', height: '700px'}}></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <div 
+              className="calendly-inline-widget" 
+              data-url="https://calendly.com/muhammadjeralkhan/new-meeting" 
+              style={{minWidth: '320px', height: '700px'}}
+            ></div>
           </div>
         </div>
       </section>
