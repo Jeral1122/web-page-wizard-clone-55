@@ -1,4 +1,3 @@
-
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -82,9 +81,11 @@ const Outbound = () => {
                 </div>
               </div>
               
-              <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                Get Started
-              </Button>
+              <Link to="/contact">
+                <Button className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                  Get Started
+                </Button>
+              </Link>
             </div>
             
             <div className="relative">

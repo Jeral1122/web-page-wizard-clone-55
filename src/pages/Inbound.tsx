@@ -82,9 +82,11 @@ const Inbound = () => {
                 </div>
               </div>
               
-              <Button className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                Get Started
-              </Button>
+              <Link to="/contact">
+                <Button className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                  Get Started
+                </Button>
+              </Link>
             </div>
             
             <div className="relative">
