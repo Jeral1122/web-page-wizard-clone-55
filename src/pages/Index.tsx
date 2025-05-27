@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -5,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { LampDemo } from '@/components/LampDemo';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
 
 const Index = () => {
@@ -27,6 +29,9 @@ const Index = () => {
 
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
+      
+      {/* Lamp Effect at top of hero section */}
+      <LampDemo />
       
       {/* Hero Section */}
       <section id="home" className="pt-24 pb-20 px-4">
