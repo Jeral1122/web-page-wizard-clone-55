@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -27,7 +28,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section with Background Gradient */}
-      <section id="home" className="relative z-0 pt-32 pb-20 px-4 min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-900">
+      <section id="home" className="relative z-0 pt-24 pb-20 px-4 min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-900">
         {/* Background Gradient Effects */}
         <div className="absolute top-0 isolate z-0 flex w-screen flex-1 items-start justify-center">
           <div className="absolute top-0 z-50 h-48 w-screen bg-transparent opacity-10 backdrop-blur-md" />
@@ -98,8 +99,8 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Hero Content - Moved further down with more spacing */}
-        <div className="relative z-50 max-w-7xl mx-auto text-center flex-1 flex flex-col justify-center mt-20">
+        {/* Hero Content - Moved up with reduced top margin */}
+        <div className="relative z-50 max-w-7xl mx-auto text-center flex-1 flex flex-col justify-center mt-8">
           <h1 className="text-5xl mb-8 animate-fade-in text-center md:text-6xl font-bold">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               AI Voice Facilitators That Sell, Book, and Handle Business —
@@ -116,10 +117,10 @@ const Index = () => {
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
-          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in" style={{
+          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in w-fit mx-auto" style={{
           animationDelay: '0.4s'
         }}>
-            <a href="#contact" className="mx-[240px] my-0 px-0 py-0">Book a Call</a>
+            <a href="#contact">Book a Call</a>
           </Button>
         </div>
       </section>
