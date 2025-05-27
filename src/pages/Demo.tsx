@@ -1,14 +1,19 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Phone, ArrowLeft, Check, Mail, MessageCircle } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate to home first

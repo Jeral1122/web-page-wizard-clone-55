@@ -4,10 +4,16 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Phone, Clock, Users, Calendar, CheckCircle } from 'lucide-react';
+import { useEffect } from 'react';
 
 const Inbound = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate to home first
@@ -231,12 +237,14 @@ const Inbound = () => {
               </div>
 
               <div className="text-center animate-fade-in mt-16" style={{ animationDelay: '0.4s' }}>
-                <p className="text-gray-400 mb-6">
-                  Need a custom solution? Let's talk about your specific requirements.
-                </p>
-                <Button onClick={() => scrollToSection('contact')} className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                  Contact Sales Team
-                </Button>
+                <div className="max-w-2xl mx-auto">
+                  <p className="text-xl text-gray-300 mb-8">
+                    Need a custom solution? Let's talk about your specific requirements.
+                  </p>
+                  <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                    Contact Sales Team
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
