@@ -16,14 +16,38 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Add custom CSS to hide scrollbar
+    // Add comprehensive CSS to hide all scrollbars
     const style = document.createElement('style');
     style.textContent = `
       .calendly-inline-widget {
         overflow: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+      .calendly-inline-widget::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
       .calendly-inline-widget iframe {
         overflow: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+      .calendly-inline-widget iframe::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+      /* Hide scrollbars for any nested elements */
+      .calendly-inline-widget * {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+      .calendly-inline-widget *::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
     `;
     document.head.appendChild(style);
