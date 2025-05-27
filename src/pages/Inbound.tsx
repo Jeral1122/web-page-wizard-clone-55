@@ -1,9 +1,18 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
-import { Phone, Clock, Users, Calendar, CheckCircle } from 'lucide-react';
+import { Phone, Clock, Users, Calendar, CheckCircle, Check, Mail, MessageCircle, ArrowRight } from 'lucide-react';
+
 const Inbound = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
@@ -45,8 +54,8 @@ const Inbound = () => {
                 </div>
               </div>
               
-              <Button asChild className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                <Link to="/contact">Get Started</Link>
+              <Button onClick={() => scrollToSection('connect')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                Get Started
               </Button>
             </div>
             
@@ -123,13 +132,222 @@ const Inbound = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <Button asChild className="gradient-bg text-white px-8 py-6 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+          {/* Pricing Section */}
+          <section id="pricing" className="mb-20">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold gradient-text mb-4">Inbound Call Pricing</h2>
+              <p className="text-gray-300 text-lg">Choose the plan that fits your business needs</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-cyan-400">$99</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-left">
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Up to 100 calls/month</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Basic lead qualification</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Email notifications</span>
+                    </li>
+                  </ul>
+                  <Button onClick={() => scrollToSection('connect')} className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-semibold">
+                    Get Started
+                  </Button>
+                </CardContent>
+              </Card>
               
-            </Button>
-          </div>
+              <Card className="glass-card border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Popular</span>
+                </div>
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold text-white mb-4">Professional</h3>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-blue-400">$299</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-left">
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Up to 500 calls/month</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Advanced lead scoring</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Calendar integration</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Call analytics</span>
+                    </li>
+                  </ul>
+                  <Button onClick={() => scrollToSection('connect')} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold">
+                    Get Started
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-purple-400">$699</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-left">
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Unlimited calls</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Custom AI training</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">Priority support</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span className="text-gray-300">API access</span>
+                    </li>
+                  </ul>
+                  <Button onClick={() => scrollToSection('connect')} className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold">
+                    Get Started
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Let's Connect Section */}
+          <section id="connect" className="mb-20">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold gradient-text mb-4">Let's Connect</h2>
+              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                Ready to transform your inbound calls? Get in touch with our team to start your AI receptionist journey.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="glass-card border-cyan-500/20">
+                <CardContent className="p-8 text-center">
+                  <Mail className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-white mb-4">Email Us</h3>
+                  <p className="text-gray-300 mb-6">Send us a message and we'll get back to you within 24 hours</p>
+                  <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-semibold">
+                    contact@voclyai.com
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-card border-blue-500/20">
+                <CardContent className="p-8 text-center">
+                  <MessageCircle className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-white mb-4">Schedule a Demo</h3>
+                  <p className="text-gray-300 mb-6">Book a personalized demo to see our AI receptionist in action</p>
+                  <Button asChild className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold">
+                    <Link to="/demo">Schedule Demo</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section id="faq" className="mb-20">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold gradient-text mb-4">Common Questions</h2>
+              <p className="text-gray-300 text-lg">Everything you need to know about our inbound call service</p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto space-y-6">
+              <Card className="glass-card border-slate-700">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-3">How quickly can the AI answer calls?</h3>
+                  <p className="text-gray-300">Our AI receptionist answers calls instantly, typically within 1-2 rings, ensuring no caller ever has to wait.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-card border-slate-700">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-3">Can the AI handle complex customer inquiries?</h3>
+                  <p className="text-gray-300">Yes, our AI is trained to handle a wide range of inquiries, from simple questions to complex lead qualification scenarios. For highly specialized requests, it can seamlessly transfer to your team.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-card border-slate-700">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-3">How does appointment booking work?</h3>
+                  <p className="text-gray-300">The AI integrates directly with your calendar system and can book appointments in real-time based on your availability, send confirmations, and even handle rescheduling requests.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-card border-slate-700">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-white mb-3">What happens to call recordings and data?</h3>
+                  <p className="text-gray-300">All calls are recorded and stored securely with enterprise-grade encryption. You have full access to call transcripts, recordings, and analytics through your dashboard.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="border-t border-slate-800 pt-12">
+            <div className="grid md:grid-cols-4 gap-8 mb-8">
+              <div>
+                <h3 className="text-xl font-bold gradient-text mb-4">VOCLY AI</h3>
+                <p className="text-gray-400 text-sm">
+                  Revolutionizing business communication with AI-powered voice solutions.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-semibold mb-4">Services</h4>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li><Link to="/inbound" className="hover:text-cyan-400 transition-colors">Inbound Calls</Link></li>
+                  <li><Link to="/outbound" className="hover:text-cyan-400 transition-colors">Outbound Calls</Link></li>
+                  <li><Link to="/demo" className="hover:text-cyan-400 transition-colors">Demo</Link></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-semibold mb-4">Company</h4>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li><Link to="/" className="hover:text-cyan-400 transition-colors">About</Link></li>
+                  <li><button onClick={() => scrollToSection('pricing')} className="hover:text-cyan-400 transition-colors">Pricing</button></li>
+                  <li><button onClick={() => scrollToSection('connect')} className="hover:text-cyan-400 transition-colors">Contact</button></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-semibold mb-4">Connect</h4>
+                <p className="text-gray-400 text-sm mb-2">contact@voclyai.com</p>
+                <p className="text-gray-400 text-sm">1-800-VOCLY-AI</p>
+              </div>
+            </div>
+            
+            <div className="border-t border-slate-800 pt-8 text-center text-gray-400 text-sm">
+              <p>&copy; 2024 VOCLY AI. All rights reserved.</p>
+            </div>
+          </footer>
         </div>
       </div>
     </div>;
 };
+
 export default Inbound;
