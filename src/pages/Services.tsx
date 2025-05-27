@@ -50,8 +50,8 @@ const Services = () => {
             <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105 group">
               <Link to="/outbound">
                 <CardContent className="p-0 overflow-hidden rounded-lg">
-                  <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
-                    <Phone className="w-20 h-20 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="h-64 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center overflow-hidden">
+                    <img src="pexels-yankrukov-7691739.jpg" alt="Man in suit on phone" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
