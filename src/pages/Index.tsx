@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
 
 const Index = () => {
@@ -605,34 +606,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">VOCLY AI</h3>
-              <p className="text-gray-400 mb-6">
-                Reimagining business, one call at a time.
-              </p>
-              
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                <a href="#home" className="block text-gray-400 hover:text-white transition-colors">Home</a>
-                <a href="#services" className="block text-gray-400 hover:text-white transition-colors">Services</a>
-                <Link to="/demo" className="block text-gray-400 hover:text-white transition-colors">Demo</Link>
-                <a href="#pricing" className="block text-gray-400 hover:text-white transition-colors">Pricing</a>
-                <a href="#contact" className="block text-gray-400 hover:text-white transition-colors">Contact</a>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">© 2025 VOCLY AI. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>;
 };
 

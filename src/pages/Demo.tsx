@@ -1,7 +1,9 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Phone, ArrowLeft, Check, Mail, MessageCircle } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -79,7 +81,10 @@ const Demo = () => {
             </Card>
             
             <div className="space-y-4">
-              <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300"
+              >
                 Get Notified When Ready
               </Button>
               
@@ -177,6 +182,8 @@ const Demo = () => {
           </section>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
