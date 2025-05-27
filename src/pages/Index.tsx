@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -222,8 +223,8 @@ const Index = () => {
                   <div className="h-64 bg-gradient-to-br from-purple-600/30 to-pink-700/30 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-purple-400 rounded-full"></div>
                     <img 
-                      src="pexels-yankrukov-7691739.jpg" 
-                      alt="Man in suit on phone" 
+                      src="/lovable-uploads/f73c5bf8-6cc5-40b4-bd88-35310f3b89d5.png" 
+                      alt="Professional man on phone call" 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
