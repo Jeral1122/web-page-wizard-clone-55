@@ -31,7 +31,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section with Background Gradient */}
-      <section id="home" className="relative z-0 pt-24 pb-20 px-4 min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-slate-900">
+      <section id="home" className="relative z-0 pt-32 pb-20 px-4 min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-900">
         {/* Background Gradient Effects */}
         <div className="absolute top-0 isolate z-0 flex w-screen flex-1 items-start justify-center">
           <div className="absolute top-0 z-50 h-48 w-screen bg-transparent opacity-10 backdrop-blur-md" />
@@ -94,8 +94,8 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-50 max-w-7xl mx-auto text-center -translate-y-20">
+        {/* Hero Content - Moved further down with more spacing */}
+        <div className="relative z-50 max-w-7xl mx-auto text-center flex-1 flex flex-col justify-center mt-20">
           <h1 className="text-5xl mb-8 animate-fade-in text-center md:text-6xl font-bold">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               AI Voice Facilitators That Sell, Book, and Handle Business —
