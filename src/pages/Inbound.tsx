@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -13,6 +12,7 @@ const Inbound = () => {
       
       <div className="pt-24 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
+          
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
               Inbound Calls

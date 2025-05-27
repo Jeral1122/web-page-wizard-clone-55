@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Phone, Users, Calendar, Target, CheckCircle, Check, Mail, MessageCircle } from 'lucide-react';
+
 const Outbound = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,7 +14,9 @@ const Outbound = () => {
       });
     }
   };
-  return <div className="min-h-screen bg-slate-900">
+
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-24 pb-20 px-4">
@@ -169,12 +172,6 @@ const Outbound = () => {
             </div>
           </div>
 
-          {/* Pricing Section */}
-          
-
-          {/* Contact Section */}
-          
-
           {/* FAQ Section */}
           <section id="faq" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
@@ -252,13 +249,24 @@ const Outbound = () => {
                   </div>
                 </Accordion>
               </div>
+
+              {/* Custom Solution CTA */}
+              <div className="text-center animate-fade-in mt-16" style={{ animationDelay: '0.4s' }}>
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl py-12 px-8 max-w-2xl mx-auto">
+                  <p className="text-xl text-gray-300 mb-8">
+                    Need a custom solution? Let's talk about your specific requirements.
+                  </p>
+                  <Button asChild className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                    <Link to="/#contact">Contact Sales Team</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </section>
-
-          {/* Footer */}
-          
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Outbound;
