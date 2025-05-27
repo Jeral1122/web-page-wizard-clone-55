@@ -5,10 +5,36 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Navigation from '@/components/Navigation';
 import { Phone, Users, Calendar, Target, CheckCircle, Check, Mail, MessageCircle } from 'lucide-react';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Outbound = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Animation variants
+  const fadeUpVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -45,24 +71,52 @@ const Outbound = () => {
       
       <div className="pt-24 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
+          <motion.div 
+            className="text-center mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold gradient-text mb-6"
+              variants={fadeUpVariants}
+            >
               Outbound Calls
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+              variants={fadeUpVariants}
+            >
               Fully automate reminders, follow-ups, and proactive customer engagement campaigns with intelligent AI calling.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Proactive Customer Engagement</h2>
-              <p className="text-lg text-gray-300 mb-8">
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <motion.h2 
+                className="text-3xl font-bold text-white mb-6"
+                variants={fadeUpVariants}
+              >
+                Proactive Customer Engagement
+              </motion.h2>
+              <motion.p 
+                className="text-lg text-gray-300 mb-8"
+                variants={fadeUpVariants}
+              >
                 Transform your customer outreach with AI-powered calling that feels natural and personal. 
                 From appointment reminders to sales follow-ups, reach every customer at the right time.
-              </p>
+              </motion.p>
               
-              <div className="space-y-4 mb-8">
+              <motion.div 
+                className="space-y-4 mb-8"
+                variants={fadeUpVariants}
+              >
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-400" />
                   <span className="text-gray-300">Automated appointment reminders</span>
@@ -79,14 +133,22 @@ const Outbound = () => {
                   <CheckCircle className="w-5 h-5 text-green-400" />
                   <span className="text-gray-300">Customer satisfaction surveys</span>
                 </div>
-              </div>
+              </motion.div>
               
-              <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-                Get Started
-              </Button>
-            </div>
+              <motion.div variants={fadeUpVariants}>
+                <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                  Get Started
+                </Button>
+              </motion.div>
+            </motion.div>
             
-            <div className="relative">
+            <motion.div 
+              className="relative"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
               <Card className="glass-card border-purple-500/20 p-8 animate-float">
                 <CardContent className="p-0 text-center">
                   <div className="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
@@ -96,121 +158,148 @@ const Outbound = () => {
                   <p className="text-gray-300">Targeted, timely, and totally automated</p>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            <Card className="glass-card border-purple-500/20 text-center hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <Calendar className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">Appointment Reminders</h3>
-                <p className="text-gray-400 text-sm">Reduce no-shows with timely, friendly reminders</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card border-blue-500/20 text-center hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <Phone className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">Sales Follow-ups</h3>
-                <p className="text-gray-400 text-sm">Automated follow-up sequences that convert</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card border-cyan-500/20 text-center hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <Users className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">Customer Surveys</h3>
-                <p className="text-gray-400 text-sm">Gather feedback and improve satisfaction</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="glass-card border-green-500/20 text-center hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <Target className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-white mb-2">Lead Nurturing</h3>
-                <p className="text-gray-400 text-sm">Convert prospects with strategic touchpoints</p>
-              </CardContent>
-            </Card>
-          </div>
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {[
+              { icon: Calendar, title: "Appointment Reminders", desc: "Reduce no-shows with timely, friendly reminders", color: "purple" },
+              { icon: Phone, title: "Sales Follow-ups", desc: "Automated follow-up sequences that convert", color: "blue" },
+              { icon: Users, title: "Customer Surveys", desc: "Gather feedback and improve satisfaction", color: "cyan" },
+              { icon: Target, title: "Lead Nurturing", desc: "Convert prospects with strategic touchpoints", color: "green" }
+            ].map((feature, index) => (
+              <motion.div key={index} variants={fadeUpVariants}>
+                <Card className={`glass-card border-${feature.color}-500/20 text-center hover:scale-105 transition-all duration-300`}>
+                  <CardContent className="p-6">
+                    <feature.icon className={`w-12 h-12 text-${feature.color}-400 mx-auto mb-4`} />
+                    <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm">{feature.desc}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* Campaign Types */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold gradient-text mb-12">Campaign Types</h2>
+          <motion.div 
+            className="text-center mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.h2 
+              className="text-3xl font-bold gradient-text mb-12"
+              variants={fadeUpVariants}
+            >
+              Campaign Types
+            </motion.h2>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
-                <CardContent className="p-8 text-left">
-                  <h3 className="text-xl font-bold text-white mb-4">Reminder Campaigns</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li>• Appointment confirmations</li>
-                    <li>• Payment due dates</li>
-                    <li>• Renewal notifications</li>
-                    <li>• Event reminders</li>
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div variants={fadeUpVariants}>
+                <Card className="glass-card border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+                  <CardContent className="p-8 text-left">
+                    <h3 className="text-xl font-bold text-white mb-4">Reminder Campaigns</h3>
+                    <ul className="space-y-2 text-gray-300">
+                      <li>• Appointment confirmations</li>
+                      <li>• Payment due dates</li>
+                      <li>• Renewal notifications</li>
+                      <li>• Event reminders</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
               
-              <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
-                <CardContent className="p-8 text-left">
-                  <h3 className="text-xl font-bold text-white mb-4">Sales Campaigns</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li>• Lead qualification calls</li>
-                    <li>• Follow-up sequences</li>
-                    <li>• Upselling opportunities</li>
-                    <li>• Win-back campaigns</li>
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div variants={fadeUpVariants}>
+                <Card className="glass-card border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                  <CardContent className="p-8 text-left">
+                    <h3 className="text-xl font-bold text-white mb-4">Sales Campaigns</h3>
+                    <ul className="space-y-2 text-gray-300">
+                      <li>• Lead qualification calls</li>
+                      <li>• Follow-up sequences</li>
+                      <li>• Upselling opportunities</li>
+                      <li>• Win-back campaigns</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Process */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold gradient-text mb-12">How Outbound Works</h2>
+          <motion.div 
+            className="text-center mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.h2 
+              className="text-3xl font-bold gradient-text mb-12"
+              variants={fadeUpVariants}
+            >
+              How Outbound Works
+            </motion.h2>
             
             <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">1</div>
-                <h3 className="text-lg font-bold text-white mb-2">Setup Campaign</h3>
-                <p className="text-gray-300 text-sm">Define your target list and message</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">2</div>
-                <h3 className="text-lg font-bold text-white mb-2">Schedule Calls</h3>
-                <p className="text-gray-300 text-sm">AI calls at optimal times</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">3</div>
-                <h3 className="text-lg font-bold text-white mb-2">Natural Conversation</h3>
-                <p className="text-gray-300 text-sm">Personalized, context-aware dialogue</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">4</div>
-                <h3 className="text-lg font-bold text-white mb-2">Track Results</h3>
-                <p className="text-gray-300 text-sm">Monitor performance and optimize</p>
-              </div>
+              {[
+                { step: "1", title: "Setup Campaign", desc: "Define your target list and message", color: "purple" },
+                { step: "2", title: "Schedule Calls", desc: "AI calls at optimal times", color: "blue" },
+                { step: "3", title: "Natural Conversation", desc: "Personalized, context-aware dialogue", color: "cyan" },
+                { step: "4", title: "Track Results", desc: "Monitor performance and optimize", color: "green" }
+              ].map((item, index) => (
+                <motion.div key={index} className="text-center" variants={fadeUpVariants}>
+                  <div className={`w-16 h-16 bg-${item.color}-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl`}>
+                    {item.step}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-300 text-sm">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* FAQ Section */}
           <section id="faq" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16 animate-fade-in">
-                <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
+              <motion.div 
+                className="text-center mb-16 animate-fade-in"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <motion.h2 
+                  className="text-5xl md:text-6xl font-bold gradient-text mb-6"
+                  variants={fadeUpVariants}
+                >
                   Common Questions
-                </h2>
-                <p className="text-xl text-gray-300">
+                </motion.h2>
+                <motion.p 
+                  className="text-xl text-gray-300"
+                  variants={fadeUpVariants}
+                >
                   Everything you need to know about VOCLY AI
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
 
-              <div className="max-w-4xl mx-auto animate-fade-in" style={{
-                animationDelay: '0.1s'
-              }}>
+              <motion.div 
+                className="max-w-4xl mx-auto animate-fade-in" 
+                style={{
+                  animationDelay: '0.1s'
+                }}
+                variants={fadeUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 <Accordion type="single" collapsible className="space-y-6">
                   <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
                     <AccordionItem value="item-1" className="border-none">
@@ -272,12 +361,19 @@ const Outbound = () => {
                     </AccordionItem>
                   </div>
                 </Accordion>
-              </div>
+              </motion.div>
 
               {/* Custom Solution CTA - Removed background */}
-              <div className="text-center animate-fade-in mt-16" style={{
-                animationDelay: '0.4s'
-              }}>
+              <motion.div 
+                className="text-center animate-fade-in mt-16" 
+                style={{
+                  animationDelay: '0.4s'
+                }}
+                variants={fadeUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 <div className="max-w-2xl mx-auto">
                   <p className="text-xl text-gray-300 mb-8">
                     Need a custom solution? Let's talk about your specific requirements.
@@ -289,7 +385,7 @@ const Outbound = () => {
                     Contact Sales Team
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </section>
         </div>
