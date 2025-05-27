@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -14,43 +12,8 @@ const Index = () => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+    script.type = 'text/javascript';
     document.body.appendChild(script);
-
-    // Add comprehensive CSS to hide all scrollbars
-    const style = document.createElement('style');
-    style.textContent = `
-      .calendly-inline-widget {
-        overflow: hidden !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-      }
-      .calendly-inline-widget::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-      .calendly-inline-widget iframe {
-        overflow: hidden !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-      }
-      .calendly-inline-widget iframe::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-      /* Hide scrollbars for any nested elements */
-      .calendly-inline-widget * {
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-      }
-      .calendly-inline-widget *::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-    `;
-    document.head.appendChild(style);
 
     return () => {
       // Cleanup script on unmount
@@ -58,13 +21,6 @@ const Index = () => {
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
-      // Cleanup styles
-      const existingStyles = document.head.querySelectorAll('style');
-      existingStyles.forEach(styleEl => {
-        if (styleEl.textContent && styleEl.textContent.includes('calendly-inline-widget')) {
-          document.head.removeChild(styleEl);
-        }
-      });
     };
   }, []);
 
@@ -581,13 +537,11 @@ const Index = () => {
           {/* Calendly Widget */}
           <div className="max-w-4xl mx-auto">
             <div 
-              className="calendly-inline-widget overflow-hidden rounded-lg" 
+              className="calendly-inline-widget" 
               data-url="https://calendly.com/muhammadjeralkhan/new-meeting" 
               style={{
                 minWidth: '320px', 
-                height: '700px',
-                border: 'none',
-                overflow: 'hidden'
+                height: '700px'
               }}
             ></div>
           </div>
@@ -683,4 +637,3 @@ const Index = () => {
 };
 
 export default Index;
-
