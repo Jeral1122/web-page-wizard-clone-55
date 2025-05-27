@@ -1,13 +1,10 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import { Phone, Clock, Users, Calendar, CheckCircle } from 'lucide-react';
-
 const Inbound = () => {
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-24 pb-20 px-4">
@@ -128,13 +125,11 @@ const Inbound = () => {
 
           <div className="text-center">
             <Button asChild className="gradient-bg text-white px-8 py-6 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-              <Link to="/contact">Start Your Free Trial</Link>
+              
             </Button>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Inbound;
