@@ -256,7 +256,7 @@ const Index = () => {
           }}>
               <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-2xl group">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-[#427bf5]">Starter</h3>
                   <div className="mb-6">
                     <span className="text-3xl font-bold text-white">$0.5</span>
                     <span className="text-gray-400">/min</span>
