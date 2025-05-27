@@ -222,7 +222,7 @@ const Index = () => {
                     <img src="/lovable-uploads/f73c5bf8-6cc5-40b4-bd88-35310f3b89d5.png" alt="Professional man on phone call" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
-                    <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
+                    <h3 className="text-3xl font-bold mb-4 text-[#2bb4f1]">Outbound Calls</h3>
                     <p className="text-gray-300 mb-6">
                       Fully automate reminders, follow-ups & more.
                     </p>
