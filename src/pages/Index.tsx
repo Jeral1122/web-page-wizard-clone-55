@@ -1,4 +1,5 @@
 
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -15,12 +16,31 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    // Add custom CSS to hide scrollbar
+    const style = document.createElement('style');
+    style.textContent = `
+      .calendly-inline-widget {
+        overflow: hidden !important;
+      }
+      .calendly-inline-widget iframe {
+        overflow: hidden !important;
+      }
+    `;
+    document.head.appendChild(style);
+
     return () => {
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
+      // Cleanup styles
+      const existingStyles = document.head.querySelectorAll('style');
+      existingStyles.forEach(styleEl => {
+        if (styleEl.textContent && styleEl.textContent.includes('calendly-inline-widget')) {
+          document.head.removeChild(styleEl);
+        }
+      });
     };
   }, []);
 
@@ -537,9 +557,14 @@ const Index = () => {
           {/* Calendly Widget */}
           <div className="max-w-4xl mx-auto">
             <div 
-              className="calendly-inline-widget" 
+              className="calendly-inline-widget overflow-hidden rounded-lg" 
               data-url="https://calendly.com/muhammadjeralkhan/new-meeting" 
-              style={{minWidth: '320px', height: '700px'}}
+              style={{
+                minWidth: '320px', 
+                height: '700px',
+                border: 'none',
+                overflow: 'hidden'
+              }}
             ></div>
           </div>
         </div>
@@ -634,3 +659,4 @@ const Index = () => {
 };
 
 export default Index;
+
