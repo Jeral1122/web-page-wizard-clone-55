@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   useEffect(() => {
@@ -29,9 +30,72 @@ const Index = () => {
   return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
-      {/* Hero Section */}
-      <section id="home" className="pt-24 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* Hero Section with Background Gradient */}
+      <section id="home" className="relative z-0 pt-24 pb-20 px-4 min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-slate-900">
+        {/* Background Gradient Effects */}
+        <div className="absolute top-0 isolate z-0 flex w-screen flex-1 items-start justify-center">
+          <div className="absolute top-0 z-50 h-48 w-screen bg-transparent opacity-10 backdrop-blur-md" />
+
+          {/* Main glow */}
+          <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-[-30%] rounded-full bg-cyan-500/60 opacity-80 blur-3xl" />
+
+          {/* Lamp effect */}
+          <motion.div
+            initial={{ width: "8rem" }}
+            viewport={{ once: true }}
+            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
+            whileInView={{ width: "16rem" }}
+            className="absolute top-0 z-30 h-36 -translate-y-[20%] rounded-full bg-cyan-400/60 blur-2xl"
+          />
+
+          {/* Top line */}
+          <motion.div
+            initial={{ width: "15rem" }}
+            viewport={{ once: true }}
+            transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
+            whileInView={{ width: "30rem" }}
+            className="absolute inset-auto z-50 h-0.5 -translate-y-[-10%] bg-cyan-400/60"
+          />
+
+          {/* Left gradient cone */}
+          <motion.div
+            initial={{ opacity: 0.5, width: "15rem" }}
+            whileInView={{ opacity: 1, width: "30rem" }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            style={{
+              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
+            }}
+            className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-cyan-500/60 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
+          >
+            <div className="absolute w-[100%] left-0 bg-slate-900 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+            <div className="absolute w-40 h-[100%] left-0 bg-slate-900 bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+          </motion.div>
+
+          {/* Right gradient cone */}
+          <motion.div
+            initial={{ opacity: 0.5, width: "15rem" }}
+            whileInView={{ opacity: 1, width: "30rem" }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            style={{
+              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
+            }}
+            className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-cyan-500/60 [--conic-position:from_290deg_at_center_top]"
+          >
+            <div className="absolute w-40 h-[100%] right-0 bg-slate-900 bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+            <div className="absolute w-[100%] right-0 bg-slate-900 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+          </motion.div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-50 max-w-7xl mx-auto text-center -translate-y-20">
           <h1 className="text-5xl mb-8 animate-fade-in text-center md:text-6xl font-bold">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               AI Voice Facilitators That Sell, Book, and Handle Business —
