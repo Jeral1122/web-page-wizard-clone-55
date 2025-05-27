@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -132,50 +131,50 @@ const Index = () => {
             Explore the core capabilities that set VOCLY AI apart, designed to automate tasks, engage customers, and drive growth seamlessly.
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <CardContent className="p-8 text-left">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Instant Call Handling</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">Instant Call Handling</h3>
+                <p className="text-gray-300">
                   Our agents pick up every call in real time, so you never miss a lead again.
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <CardContent className="p-8 text-left">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Effortless Appointment Booking</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">Effortless Appointment Booking</h3>
+                <p className="text-gray-300">
                   Automate scheduling and confirmations—clients book in seconds, hassle-free.
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <CardContent className="p-8 text-left">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
                   <Users className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">Proactive Lead Engagement</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">Proactive Lead Engagement</h3>
+                <p className="text-gray-300">
                   Engage new prospects with smart, natural conversations that qualify and follow up.
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 rounded-2xl">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <CardContent className="p-8 text-left">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
                   <DollarSign className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">24/7 Sales & Upsell Support</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">24/7 Sales & Upsell Support</h3>
+                <p className="text-gray-300">
                   Turn every call into an opportunity—AI-driven pitches and cross-sells, round-the-clock.
                 </p>
               </CardContent>
