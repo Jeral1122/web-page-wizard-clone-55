@@ -4,10 +4,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       {/* Hero Section */}
@@ -201,11 +199,7 @@ const Index = () => {
                 <CardContent className="p-0">
                   <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-cyan-400 rounded-full"></div>
-                    <img 
-                      src="/lovable-uploads/723a4b29-4d3b-4965-be40-7be3e2b95439.png" 
-                      alt="Professional man on phone call" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                    <img src="/lovable-uploads/723a4b29-4d3b-4965-be40-7be3e2b95439.png" alt="Professional man on phone call" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Inbound Calls</h3>
@@ -225,11 +219,7 @@ const Index = () => {
                 <CardContent className="p-0">
                   <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-cyan-400 rounded-full"></div>
-                    <img 
-                      src="/lovable-uploads/f73c5bf8-6cc5-40b4-bd88-35310f3b89d5.png" 
-                      alt="Professional man on phone call" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                    <img src="/lovable-uploads/f73c5bf8-6cc5-40b4-bd88-35310f3b89d5.png" alt="Professional man on phone call" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
@@ -253,13 +243,17 @@ const Index = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-gray-300 mb-16 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <p className="text-xl text-gray-300 mb-16 animate-fade-in" style={{
+          animationDelay: '0.1s'
+        }}>
             Choose the plan that's right for you.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-2xl group">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
@@ -316,7 +310,9 @@ const Index = () => {
             </div>
 
             {/* Pro Plan */}
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               <Card className="bg-slate-800/30 backdrop-blur-lg border border-purple-400/50 hover:border-purple-400/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl relative rounded-2xl group scale-105">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                   <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold animate-pulse-slow">
@@ -378,7 +374,9 @@ const Index = () => {
             </div>
 
             {/* Enterprise Plan */}
-            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-2xl group">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
@@ -435,7 +433,9 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="text-center mt-16 animate-fade-in" style={{
+          animationDelay: '0.5s'
+        }}>
             <p className="text-gray-400 mb-6">
               Need a custom solution? Let's talk about your specific requirements.
             </p>
@@ -571,9 +571,7 @@ const Index = () => {
             Let's Connect
           </h2>
           
-          <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-12 py-6 text-xl font-semibold rounded-full hover:scale-105 transition-all duration-300">
-            Get Started Today
-          </Button>
+          
         </div>
       </section>
 
@@ -610,8 +608,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
