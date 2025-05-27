@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
-import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield } from 'lucide-react';
+import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield, Check, X } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -250,114 +250,198 @@ const Index = () => {
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-gray-300 mb-16">
+          <p className="text-xl text-gray-300 mb-16 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Choose the plan that's right for you.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
-            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
-                <div className="mb-6">
-                  <span className="text-3xl font-bold text-white">$0.5</span>
-                  <span className="text-gray-400">/min</span>
-                </div>
-                <div className="space-y-3 mb-8 text-left">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Free Minutes</span>
-                    <span className="text-white">100 mins/month</span>
+            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-2xl group">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-4">Starter</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-white">$0.5</span>
+                    <span className="text-gray-400">/min</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Voice Agents Included</span>
-                    <span className="text-white">1</span>
+                  <div className="space-y-3 mb-8 text-left">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Free Minutes</span>
+                      <span className="text-white">100 mins/month</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Voice Agents Included</span>
+                      <span className="text-white">1</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Integrations</span>
+                      <span className="text-white">Basic</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Monthly Minutes</span>
+                      <span className="text-white">1,000 mins</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Integrations</span>
-                    <span className="text-white">Basic</span>
+                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    Unlock
+                  </Button>
+                  
+                  {/* Capabilities Section */}
+                  <div className="border-t border-slate-700/30 pt-6">
+                    <h4 className="text-lg font-semibold text-white mb-4">Capabilities:</h4>
+                    <div className="space-y-3 text-left">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Languages Supported</span>
+                        <span className="text-white font-semibold">English</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Voice Cloning</span>
+                        <X className="w-5 h-5 text-red-400" />
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Support</span>
+                        <span className="text-white font-semibold">24/7 Support</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Weekly Calls</span>
+                        <Check className="w-5 h-5 text-green-400" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Monthly Minutes</span>
-                    <span className="text-white">1,000 mins</span>
-                  </div>
-                </div>
-                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
-                  Unlock
-                </Button>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Pro Plan */}
-            <Card className="bg-slate-800/30 backdrop-blur-lg border border-purple-400/50 hover:border-purple-400/70 transition-all duration-300 relative rounded-2xl">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  Most Popular
-                </span>
-              </div>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Pro</h3>
-                <div className="mb-6">
-                  <span className="text-3xl font-bold text-white">$0.4</span>
-                  <span className="text-gray-400">/min</span>
+            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Card className="bg-slate-800/30 backdrop-blur-lg border border-purple-400/50 hover:border-purple-400/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl relative rounded-2xl group scale-105">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold animate-pulse-slow">
+                    Most Popular
+                  </span>
                 </div>
-                <div className="space-y-3 mb-8 text-left">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Free Minutes</span>
-                    <span className="text-white">400 mins/month</span>
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">Pro</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-white">$0.4</span>
+                    <span className="text-gray-400">/min</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Voice Agents Included</span>
-                    <span className="text-white">5</span>
+                  <div className="space-y-3 mb-8 text-left">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Free Minutes</span>
+                      <span className="text-white">400 mins/month</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Voice Agents Included</span>
+                      <span className="text-white">5</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Integrations</span>
+                      <span className="text-white">Advanced</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Monthly Minutes</span>
+                      <span className="text-white">10,000 mins</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Integrations</span>
-                    <span className="text-white">Advanced</span>
+                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    Unlock
+                  </Button>
+                  
+                  {/* Capabilities Section */}
+                  <div className="border-t border-slate-700/30 pt-6">
+                    <h4 className="text-lg font-semibold text-white mb-4">Capabilities:</h4>
+                    <div className="space-y-3 text-left">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Languages Supported</span>
+                        <span className="text-white font-semibold">10 Languages</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Voice Cloning</span>
+                        <X className="w-5 h-5 text-red-400" />
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Support</span>
+                        <span className="text-white font-semibold">24/7 Support</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Weekly Calls</span>
+                        <Check className="w-5 h-5 text-green-400" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Monthly Minutes</span>
-                    <span className="text-white">10,000 mins</span>
-                  </div>
-                </div>
-                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
-                  Unlock
-                </Button>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Enterprise Plan */}
-            <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 rounded-2xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
-                <div className="mb-6">
-                  <span className="text-3xl font-bold text-white">$0.3</span>
-                  <span className="text-gray-400">/min</span>
-                </div>
-                <div className="space-y-3 mb-8 text-left">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Free Minutes</span>
-                    <span className="text-white">600 mins/month</span>
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <Card className="bg-slate-800/30 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-2xl group">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-white">$0.3</span>
+                    <span className="text-gray-400">/min</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Voice Agents Included</span>
-                    <span className="text-white">Unlimited</span>
+                  <div className="space-y-3 mb-8 text-left">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Free Minutes</span>
+                      <span className="text-white">600 mins/month</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Voice Agents Included</span>
+                      <span className="text-white">Unlimited</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Integrations</span>
+                      <span className="text-white">Custom API</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Monthly Minutes</span>
+                      <span className="text-white">25,000+ mins</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Integrations</span>
-                    <span className="text-white">Custom API</span>
+                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    Contact Sales
+                  </Button>
+                  
+                  {/* Capabilities Section */}
+                  <div className="border-t border-slate-700/30 pt-6">
+                    <h4 className="text-lg font-semibold text-white mb-4">Capabilities:</h4>
+                    <div className="space-y-3 text-left">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Languages Supported</span>
+                        <span className="text-white font-semibold">42+ Languages</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Voice Cloning</span>
+                        <Check className="w-5 h-5 text-green-400" />
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Support</span>
+                        <span className="text-white font-semibold">24/7 Support</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Weekly Calls</span>
+                        <Check className="w-5 h-5 text-green-400" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Monthly Minutes</span>
-                    <span className="text-white">25,000+ mins</span>
-                  </div>
-                </div>
-                <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full">
-                  Contact Sales
-                </Button>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+          
+          <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <p className="text-gray-400 mb-6">
+              Need a custom solution? Let's talk about your specific requirements.
+            </p>
+            <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-4 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300">
+              Contact Sales Team
+            </Button>
           </div>
         </div>
       </section>
