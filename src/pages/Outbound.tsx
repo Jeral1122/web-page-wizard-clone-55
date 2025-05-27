@@ -170,14 +170,10 @@ const Outbound = () => {
           </div>
 
           {/* Pricing Section */}
-          <section id="pricing" className="py-20 px-4">
-            
-          </section>
+          
 
           {/* Contact Section */}
-          <section id="contact" className="py-20 px-4">
-            
-          </section>
+          
 
           {/* FAQ Section */}
           <section id="faq" className="py-20 px-4">
@@ -260,80 +256,7 @@ const Outbound = () => {
           </section>
 
           {/* Footer */}
-          <footer className="bg-slate-800/30 backdrop-blur-sm border-t border-slate-700/50 py-16 px-4">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-12">
-                <div className="animate-fade-in">
-                  <h3 className="text-2xl font-bold gradient-text mb-4">VOCLY AI</h3>
-                  <p className="text-gray-400 mb-6">
-                    Reimagining business, one call at a time.
-                  </p>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-600 transition-colors cursor-pointer">
-                      <span className="text-white font-bold">f</span>
-                    </div>
-                    <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-600 transition-colors cursor-pointer">
-                      <span className="text-white font-bold">t</span>
-                    </div>
-                    <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-600 transition-colors cursor-pointer">
-                      <span className="text-white font-bold">in</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="animate-fade-in" style={{
-                animationDelay: '0.1s'
-              }}>
-                  <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
-                  <ul className="space-y-3 text-gray-400">
-                    <li><Link to="/inbound" className="hover:text-cyan-400 transition-colors">Inbound Calls</Link></li>
-                    <li><Link to="/outbound" className="hover:text-cyan-400 transition-colors">Outbound Calls</Link></li>
-                    <li><Link to="/demo" className="hover:text-cyan-400 transition-colors">Demo</Link></li>
-                    <li><button onClick={() => scrollToSection('pricing')} className="hover:text-cyan-400 transition-colors">Pricing</button></li>
-                  </ul>
-                </div>
-
-                <div className="animate-fade-in" style={{
-                animationDelay: '0.2s'
-              }}>
-                  <h4 className="text-lg font-semibold text-white mb-4">Company</h4>
-                  <ul className="space-y-3 text-gray-400">
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">Careers</Link></li>
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">Blog</Link></li>
-                    <li><button onClick={() => scrollToSection('contact')} className="hover:text-cyan-400 transition-colors">Contact</button></li>
-                  </ul>
-                </div>
-
-                <div className="animate-fade-in" style={{
-                animationDelay: '0.3s'
-              }}>
-                  <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
-                  <ul className="space-y-3 text-gray-400">
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link></li>
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">Terms of Service</Link></li>
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">Cookie Policy</Link></li>
-                    <li><Link to="/" className="hover:text-cyan-400 transition-colors">GDPR</Link></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="border-t border-slate-700/50 pt-8 animate-fade-in" style={{
-              animationDelay: '0.4s'
-            }}>
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                  <p className="text-gray-400">
-                    © 2025 VOCLY AI. All rights reserved.
-                  </p>
-                  <div className="flex gap-6 text-gray-400 text-sm">
-                    <Link to="/" className="hover:text-cyan-400 transition-colors">Status</Link>
-                    <Link to="/" className="hover:text-cyan-400 transition-colors">Security</Link>
-                    <Link to="/" className="hover:text-cyan-400 transition-colors">Documentation</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </footer>
+          
         </div>
       </div>
     </div>;
