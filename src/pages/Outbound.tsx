@@ -1,12 +1,21 @@
+
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Phone, Users, Calendar, Target, CheckCircle, Check, Mail, MessageCircle } from 'lucide-react';
+import { useEffect } from 'react';
+
 const Outbound = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -30,7 +39,9 @@ const Outbound = () => {
       }
     }
   };
-  return <div className="min-h-screen bg-slate-900">
+
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-24 pb-20 px-4">
@@ -199,8 +210,8 @@ const Outbound = () => {
               </div>
 
               <div className="max-w-4xl mx-auto animate-fade-in" style={{
-              animationDelay: '0.1s'
-            }}>
+                animationDelay: '0.1s'
+              }}>
                 <Accordion type="single" collapsible className="space-y-6">
                   <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
                     <AccordionItem value="item-1" className="border-none">
@@ -264,15 +275,18 @@ const Outbound = () => {
                 </Accordion>
               </div>
 
-              {/* Custom Solution CTA */}
+              {/* Custom Solution CTA - Removed background */}
               <div className="text-center animate-fade-in mt-16" style={{
-              animationDelay: '0.4s'
-            }}>
-                <div className="backdrop-blur-sm border border-slate-700/50 rounded-2xl max-w-2xl mx-auto px-0 py-0 bg-gray-900 bg-[g_0f172a]">
+                animationDelay: '0.4s'
+              }}>
+                <div className="max-w-2xl mx-auto">
                   <p className="text-xl text-gray-300 mb-8">
                     Need a custom solution? Let's talk about your specific requirements.
                   </p>
-                  <Button onClick={() => scrollToSection('contact')} className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                  <Button 
+                    onClick={() => scrollToSection('contact')} 
+                    className="gradient-bg text-white px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300"
+                  >
                     Contact Sales Team
                   </Button>
                 </div>
@@ -281,6 +295,8 @@ const Outbound = () => {
           </section>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Outbound;
