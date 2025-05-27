@@ -4,11 +4,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Phone, Users, Calendar, Target, CheckCircle, Check, Mail, MessageCircle } from 'lucide-react';
-
 const Outbound = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -32,9 +30,7 @@ const Outbound = () => {
       }
     }
   };
-
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-24 pb-20 px-4">
@@ -269,8 +265,10 @@ const Outbound = () => {
               </div>
 
               {/* Custom Solution CTA */}
-              <div className="text-center animate-fade-in mt-16" style={{ animationDelay: '0.4s' }}>
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl py-12 px-8 max-w-2xl mx-auto">
+              <div className="text-center animate-fade-in mt-16" style={{
+              animationDelay: '0.4s'
+            }}>
+                <div className="backdrop-blur-sm border border-slate-700/50 rounded-2xl max-w-2xl mx-auto px-0 py-0 bg-gray-900 bg-[g_0f172a]">
                   <p className="text-xl text-gray-300 mb-8">
                     Need a custom solution? Let's talk about your specific requirements.
                   </p>
@@ -283,8 +281,6 @@ const Outbound = () => {
           </section>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Outbound;
