@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -200,9 +199,13 @@ const Index = () => {
             <Card className="bg-gradient-to-br from-cyan-600/20 to-blue-700/20 backdrop-blur-lg border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/inbound">
                 <CardContent className="p-0">
-                  <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative">
+                  <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-cyan-400 rounded-full"></div>
-                    <Phone className="w-16 h-16 text-cyan-400 group-hover:scale-110 transition-transform duration-300" />
+                    <img 
+                      src="/lovable-uploads/723a4b29-4d3b-4965-be40-7be3e2b95439.png" 
+                      alt="Professional man on phone call" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Inbound Calls</h3>
@@ -217,11 +220,11 @@ const Index = () => {
               </Link>
             </Card>
             
-            <Card className="bg-gradient-to-br from-purple-600/20 to-pink-700/20 backdrop-blur-lg border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
+            <Card className="bg-gradient-to-br from-cyan-600/20 to-blue-700/20 backdrop-blur-lg border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/outbound">
                 <CardContent className="p-0">
-                  <div className="h-64 bg-gradient-to-br from-purple-600/30 to-pink-700/30 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute top-4 right-4 w-4 h-4 bg-purple-400 rounded-full"></div>
+                  <div className="h-64 bg-gradient-to-br from-cyan-600/30 to-blue-700/30 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute top-4 right-4 w-4 h-4 bg-cyan-400 rounded-full"></div>
                     <img 
                       src="/lovable-uploads/f73c5bf8-6cc5-40b4-bd88-35310f3b89d5.png" 
                       alt="Professional man on phone call" 
