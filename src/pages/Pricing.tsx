@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import { Check, X } from 'lucide-react';
 
@@ -221,14 +222,92 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <p className="text-gray-400 mb-6">
-              Need a custom solution? Let's talk about your specific requirements.
-            </p>
-            <Button asChild className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
-              <Link to="/#contact">Contact Sales Team</Link>
-            </Button>
-          </div>
+          {/* FAQ Section */}
+          <section id="faq" className="py-20 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16 animate-fade-in">
+                <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
+                  Common Questions
+                </h2>
+                <p className="text-xl text-gray-300">
+                  Everything you need to know about VOCLY AI
+                </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                <Accordion type="single" collapsible className="space-y-6">
+                  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    <AccordionItem value="item-1" className="border-none">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold text-white hover:text-cyan-400 transition-colors">
+                        What can VOCLY AI actually do?
+                      </AccordionTrigger>
+                      <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
+                        VOCLY AI can handle inbound calls, make outbound calls for appointments and follow-ups, 
+                        qualify leads, book appointments, and provide 24/7 customer service with human-like conversation capabilities.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+
+                  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    <AccordionItem value="item-2" className="border-none">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold text-white hover:text-cyan-400 transition-colors">
+                        How is this different from other AI tools?
+                      </AccordionTrigger>
+                      <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
+                        Unlike text-based AI tools, VOCLY AI specializes in voice interactions with natural conversation flow, 
+                        real-time responses, and integration with your existing business systems for seamless operations.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+
+                  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    <AccordionItem value="item-3" className="border-none">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold text-white hover:text-cyan-400 transition-colors">
+                        Is my data secure with VOCLY AI?
+                      </AccordionTrigger>
+                      <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
+                        Yes, we use enterprise-grade encryption and security protocols. All call data is stored securely 
+                        and you maintain full control over your customer information.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+
+                  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    <AccordionItem value="item-4" className="border-none">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold text-white hover:text-cyan-400 transition-colors">
+                        What kind of support do you offer?
+                      </AccordionTrigger>
+                      <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
+                        We provide 24/7 technical support, dedicated account managers for enterprise clients, 
+                        and comprehensive onboarding to ensure successful implementation.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+
+                  <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    <AccordionItem value="item-5" className="border-none">
+                      <AccordionTrigger className="px-8 py-6 text-left text-lg font-semibold text-white hover:text-cyan-400 transition-colors">
+                        How quickly can I get started?
+                      </AccordionTrigger>
+                      <AccordionContent className="px-8 pb-6 text-gray-300 text-lg leading-relaxed">
+                        Most clients can be up and running within 24-48 hours. Our team handles the setup and 
+                        integration with your existing systems.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                </Accordion>
+              </div>
+
+              <div className="text-center animate-fade-in mt-16" style={{ animationDelay: '0.4s' }}>
+                <p className="text-gray-400 mb-6">
+                  Need a custom solution? Let's talk about your specific requirements.
+                </p>
+                <Button asChild className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+                  <Link to="/#contact">Contact Sales Team</Link>
+                </Button>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
