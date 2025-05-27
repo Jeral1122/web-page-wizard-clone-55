@@ -48,7 +48,7 @@ const Navigation = () => {
                 Home
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('tailored-business')}
                 className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Services
@@ -93,7 +93,7 @@ const Navigation = () => {
             <button onClick={() => scrollToSection('home')} className="text-cyan-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">
               Home
             </button>
-            <button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">
+            <button onClick={() => scrollToSection('tailored-business')} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">
               Services
             </button>
             <Link to="/demo" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">

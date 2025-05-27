@@ -184,7 +184,7 @@ const Index = () => {
       </section>
 
       {/* Services Cards Section */}
-      <section className="py-20 px-4">
+      <section id="tailored-business" className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-white">Tailored For Your </span>
@@ -285,8 +285,8 @@ const Index = () => {
                       <span className="text-white">1,000 mins</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
-                    Unlock
+                  <Button asChild className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    <a href="#contact">Unlock</a>
                   </Button>
                   
                   {/* Capabilities Section */}
@@ -347,8 +347,8 @@ const Index = () => {
                       <span className="text-white">10,000 mins</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
-                    Unlock
+                  <Button asChild className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    <a href="#contact">Unlock</a>
                   </Button>
                   
                   {/* Capabilities Section */}
@@ -404,8 +404,8 @@ const Index = () => {
                       <span className="text-white">25,000+ mins</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
-                    Contact Sales
+                  <Button asChild className="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-semibold rounded-full mb-8 transition-all duration-300 hover:scale-105">
+                    <a href="#contact">Contact Sales</a>
                   </Button>
                   
                   {/* Capabilities Section */}
@@ -439,8 +439,8 @@ const Index = () => {
             <p className="text-gray-400 mb-6">
               Need a custom solution? Let's talk about your specific requirements.
             </p>
-            <Button className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-4 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300">
-              Contact Sales Team
+            <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-4 text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300">
+              <a href="#contact">Contact Sales Team</a>
             </Button>
           </div>
         </div>
