@@ -1,11 +1,12 @@
 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useCallback } from 'react';
 
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
       navigate('/');
@@ -14,7 +15,8 @@ const Footer = () => {
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'smooth',
+            block: 'start'
           });
         }
       }, 100);
@@ -23,48 +25,56 @@ const Footer = () => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     }
-  };
+  }, [navigate, location.pathname]);
 
   return (
-    <footer className="border-t border-slate-800 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8">
+    <footer className="border-t border-slate-800 py-8 sm:py-12 px-4 safe-area">
+      <div className="responsive-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">VOCLY AI</h3>
-            <p className="text-gray-400 mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+              VOCLY AI
+            </h3>
+            <p className="text-gray-400 mb-4 sm:mb-6 responsive-text">
               Reimagining business, one call at a time.
             </p>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Quick Links</h4>
             <div className="space-y-2">
               <button 
                 onClick={() => scrollToSection('home')} 
-                className="block text-gray-400 hover:text-white transition-colors text-left"
+                className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('tailored-business')} 
-                className="block text-gray-400 hover:text-white transition-colors text-left"
+                className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
               >
                 Services
               </button>
-              <Link to="/demo" className="block text-gray-400 hover:text-white transition-colors">Demo</Link>
+              <Link 
+                to="/demo" 
+                className="block text-gray-400 hover:text-white transition-colors focus-visible responsive-text"
+              >
+                Demo
+              </Link>
               <button 
                 onClick={() => scrollToSection('pricing')} 
-                className="block text-gray-400 hover:text-white transition-colors text-left"
+                className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => scrollToSection('contact')} 
-                className="block text-gray-400 hover:text-white transition-colors text-left"
+                className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
               >
                 Contact
               </button>
@@ -72,8 +82,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-slate-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2025 VOCLY AI. All rights reserved.</p>
+        <div className="border-t border-slate-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
+          <p className="text-gray-400 text-sm sm:text-base">© 2025 VOCLY AI. All rights reserved.</p>
         </div>
       </div>
     </footer>
