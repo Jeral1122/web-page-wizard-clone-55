@@ -4,8 +4,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navigation from '@/components/Navigation';
 import { Phone, Calendar, Users, BarChart, Database, Rocket, Clock, DollarSign, MessageSquare, Mic, Brain, Shield } from 'lucide-react';
+
 const Index = () => {
-  return <div className="min-h-screen bg-slate-900">
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       {/* Hero Section */}
@@ -217,9 +219,13 @@ const Index = () => {
             <Card className="bg-gradient-to-br from-purple-600/20 to-pink-700/20 backdrop-blur-lg border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:scale-105 group cursor-pointer rounded-2xl overflow-hidden">
               <Link to="/outbound">
                 <CardContent className="p-0">
-                  <div className="<img src=\"pexels-yankrukov-7691739.jpg\" alt=\"Man in suit on phone\" width=\"600\">\n">
+                  <div className="h-64 bg-gradient-to-br from-purple-600/30 to-pink-700/30 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute top-4 right-4 w-4 h-4 bg-purple-400 rounded-full"></div>
-                    <Phone className="w-16 h-16 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                    <img 
+                      src="pexels-yankrukov-7691739.jpg" 
+                      alt="Man in suit on phone" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-white mb-4">Outbound Calls</h3>
@@ -516,6 +522,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
