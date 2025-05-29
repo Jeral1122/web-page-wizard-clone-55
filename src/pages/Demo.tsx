@@ -59,8 +59,8 @@ const Demo = () => {
       const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
       const buttonConfig = {
         offset: "40px",
-        width: "50px",
-        height: "50px",
+        width: "80px",
+        height: "80px",
         position: "bottom-left",
         idle: {
           color: `rgb(93, 254, 202)`,
