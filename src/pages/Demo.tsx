@@ -58,7 +58,7 @@ const Demo = () => {
       const assistant = "33213eff-d8a9-41bf-b394-7487a2f8f5a9";
       const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
       const buttonConfig = {
-        position: "bottom-right",
+        position: "center",
         offset: "40px",
         width: "80px",
         // Made bigger
