@@ -7,6 +7,7 @@ import { Phone, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,7 +42,95 @@ const Demo = () => {
       top: 0,
       behavior: 'smooth'
     });
+
+    // Initialize Vapi AI when component mounts
+    const initVapi = () => {
+      var vapiInstance = null;
+      const assistant = "33213eff-d8a9-41bf-b394-7487a2f8f5a9";
+      const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
+      const buttonConfig = {
+        position: "bottom-right",
+        offset: "40px",
+        width: "80px", // Made bigger
+        height: "80px", // Made bigger
+        idle: {
+          color: `rgb(93, 254, 202)`, 
+          type: "pill",
+          title: "Have a quick question?",
+          subtitle: "Talk with our AI assistant",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+        },
+        loading: {
+          color: `rgb(93, 124, 202)`,
+          type: "pill",
+          title: "Connecting...",
+          subtitle: "Please wait",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+        },
+        active: {
+          color: `rgb(255, 0, 0)`,
+          type: "pill",
+          title: "Call is in progress...",
+          subtitle: "End the call.",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+        },
+      };
+
+      // Check if Vapi script is already loaded
+      if (window.vapiSDK) {
+        try {
+          vapiInstance = window.vapiSDK.run({
+            apiKey: apiKey,
+            assistant: assistant,
+            config: buttonConfig,
+          });
+        } catch (error) {
+          console.error('Error initializing Vapi:', error);
+        }
+      } else {
+        // Load Vapi script dynamically
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        script.defer = true;
+        script.async = true;
+        
+        script.onload = function () {
+          try {
+            if (window.vapiSDK) {
+              vapiInstance = window.vapiSDK.run({
+                apiKey: apiKey,
+                assistant: assistant,
+                config: buttonConfig,
+              });
+            }
+          } catch (error) {
+            console.error('Error initializing Vapi after script load:', error);
+          }
+        };
+        
+        script.onerror = function() {
+          console.error('Failed to load Vapi script');
+        };
+        
+        document.head.appendChild(script);
+      }
+    };
+
+    initVapi();
+
+    // Cleanup function
+    return () => {
+      // Clean up Vapi instance if needed
+      if (window.vapiInstance && window.vapiInstance.stop) {
+        try {
+          window.vapiInstance.stop();
+        } catch (error) {
+          console.log('Error stopping Vapi instance:', error);
+        }
+      }
+    };
   }, []);
+
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -83,7 +172,8 @@ const Demo = () => {
     question: "How quickly can I get started?",
     answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
   }];
-  return <div className="min-h-screen bg-slate-900">
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-20 responsive-padding">
@@ -107,21 +197,27 @@ const Demo = () => {
                 <Phone className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cyan-400" />
               </motion.div>
               
-              <motion.h1 className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" variants={fadeUpVariants}>Demo </motion.h1>
+              <motion.h1 className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" variants={fadeUpVariants}>Demo</motion.h1>
               
-              <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>Never lose revenue from missed calls again.</motion.p>
+              <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
+                Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button in the bottom right corner to start a conversation.
+              </motion.p>
               
               <motion.div variants={fadeUpVariants}>
                 <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 max-w-md mx-auto mb-6 sm:mb-8">
-                  
+                  <CardContent className="p-6 text-center">
+                    <Phone className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold text-white mb-2">Live AI Assistant</h3>
+                    <p className="text-gray-300">
+                      Click the phone button in the bottom right to experience our AI voice assistant in action.
+                    </p>
+                  </CardContent>
                 </Card>
               </motion.div>
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
-                
-                
                 <div className="text-gray-400 text-sm sm:text-base">
-                  
+                  <p>The AI assistant can help answer questions about our services and schedule consultations.</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -181,6 +277,8 @@ const Demo = () => {
       </div>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Demo;
