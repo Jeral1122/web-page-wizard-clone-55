@@ -109,32 +109,19 @@ const Demo = () => {
               
               <motion.h1 className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" variants={fadeUpVariants}>Demo </motion.h1>
               
-              <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
-                We're putting the finishing touches on our interactive AI voice demo. 
-                Experience the future of business communication firsthand.
-              </motion.p>
+              <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>Never lose revenue from missed calls again.</motion.p>
               
               <motion.div variants={fadeUpVariants}>
                 <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 max-w-md mx-auto mb-6 sm:mb-8">
-                  <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">What to Expect</h3>
-                    <ul className="text-gray-300 space-y-2 text-left text-sm sm:text-base">
-                      <li>• Live AI voice interaction</li>
-                      <li>• Real-time conversation flow</li>
-                      <li>• Appointment booking simulation</li>
-                      <li>• Lead qualification process</li>
-                    </ul>
-                  </CardContent>
+                  
                 </Card>
               </motion.div>
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
-                <Button onClick={() => scrollToSection('contact')} className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full hover:scale-105 transition-all duration-300 focus-visible">
-                  Get Notified When Ready
-                </Button>
+                
                 
                 <div className="text-gray-400 text-sm sm:text-base">
-                  <p>Or book a personal demo call with our team</p>
+                  
                 </div>
               </motion.div>
             </motion.div>
