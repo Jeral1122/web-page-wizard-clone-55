@@ -58,12 +58,9 @@ const Demo = () => {
       const assistant = "33213eff-d8a9-41bf-b394-7487a2f8f5a9";
       const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
       const buttonConfig = {
-        position: "bottom-right",
         offset: "40px",
         width: "80px",
-        // Made bigger
         height: "80px",
-        // Made bigger
         idle: {
           color: `rgb(93, 254, 202)`,
           type: "pill",
@@ -255,7 +252,7 @@ const Demo = () => {
               <motion.h1 className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" variants={fadeUpVariants}>Demo</motion.h1>
               
               <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
-                Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button in the bottom right corner to start a conversation.
+                Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button in the center of the screen to start a conversation.
               </motion.p>
               
               <motion.div variants={fadeUpVariants}>
