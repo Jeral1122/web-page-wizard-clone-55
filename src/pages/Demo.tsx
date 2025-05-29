@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -38,7 +37,7 @@ const Demo = () => {
       }
     }
   };
-
+  
   const staggerContainer = {
     hidden: {},
     visible: {
@@ -62,9 +61,9 @@ const Demo = () => {
       const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
       const buttonConfig = {
         offset: "40px",
-        width: "80px",
-        height: "80px",
-        position: "center",
+        width: "50px",
+        height: "50px",
+        position: "bottom-left",
         idle: {
           color: `rgb(93, 254, 202)`,
           type: "pill",
@@ -188,7 +187,6 @@ const Demo = () => {
       }
     };
   }, []);
-
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -214,7 +212,6 @@ const Demo = () => {
       }
     }
   }, [navigate, location.pathname]);
-
   const faqItems = [
     {
       question: "What can VOCLY AI actually do?",
@@ -237,7 +234,6 @@ const Demo = () => {
       answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
     }
   ];
-
   return (
     <div className="min-h-screen bg-slate-900">
       <Navigation />
@@ -245,15 +241,15 @@ const Demo = () => {
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-20 responsive-padding">
         <div className="responsive-container">
           <div className="text-center">
-            <motion.div 
-              className="mb-6 sm:mb-8" 
-              variants={fadeUpVariants} 
-              initial="hidden" 
-              whileInView="visible" 
+            <motion.div
+              className="mb-6 sm:mb-8"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6 sm:mb-8 focus-visible"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -261,48 +257,47 @@ const Demo = () => {
               </Link>
             </motion.div>
 
-            <motion.div 
-              className="animate-fade-in mb-12 sm:mb-20" 
-              variants={staggerContainer} 
-              initial="hidden" 
-              whileInView="visible" 
+            <motion.div
+              className="animate-fade-in mb-12 sm:mb-20"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <motion.div 
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-transparent rounded-full flex items-center justify-center mb-6 sm:mb-8 mx-auto animate-pulse-slow" 
+              <motion.div
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-transparent rounded-full flex items-center justify-center mb-6 sm:mb-8 mx-auto animate-pulse-slow"
                 variants={fadeUpVariants}
               >
                 <Phone className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cyan-400" />
               </motion.div>
               
-              <motion.h1 
-                className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" 
+              <motion.h1
+                className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6"
                 variants={fadeUpVariants}
               >
                 Demo
               </motion.h1>
               
-              <motion.p 
-                className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" 
+              <motion.p
+                className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto"
                 variants={fadeUpVariants}
               >
                 Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button to start a conversation.
               </motion.p>
               
-              {/* AI Assistant Visual Card */}
-              <motion.div 
-                className="flex justify-center mb-8 sm:mb-12" 
+              <motion.div
+                className="flex justify-center mb-8 sm:mb-12"
                 variants={fadeUpVariants}
               >
-                <Card className="glass-card max-w-md">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mb-4 mx-auto animate-pulse-slow">
-                      <Phone className="w-10 h-10 text-white" />
+                <Card className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 p-6 max-w-md">
+                  <CardContent className="flex items-center gap-4 p-0">
+                    <div className="bg-cyan-500/20 p-3 rounded-full">
+                      <Phone className="w-6 h-6 text-cyan-400" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">AI Voice Assistant</h3>
-                    <p className="text-gray-300 text-sm">
-                      Click the phone button that appears to test our AI assistant
-                    </p>
+                    <div className="text-left">
+                      <h3 className="font-semibold text-white mb-1">Have a quick question?</h3>
+                      <p className="text-gray-400 text-sm">Talk with our AI assistant</p>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -317,26 +312,41 @@ const Demo = () => {
             {/* FAQ Section */}
             <section id="faq" className="py-12 sm:py-20">
               <div className="responsive-container">
-                <motion.div className="text-center mb-12 sm:mb-16 animate-fade-in" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{
-                once: true,
-                margin: "-100px"
-              }}>
-                  <motion.h2 className="responsive-heading font-bold gradient-text mb-4 sm:mb-6" variants={fadeUpVariants}>
+                <motion.div
+                  className="text-center mb-12 sm:mb-16 animate-fade-in"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  <motion.h2
+                    className="responsive-heading font-bold gradient-text mb-4 sm:mb-6"
+                    variants={fadeUpVariants}
+                  >
                     Common Questions
                   </motion.h2>
-                  <motion.p className="responsive-text text-gray-300" variants={fadeUpVariants}>
+                  <motion.p
+                    className="responsive-text text-gray-300"
+                    variants={fadeUpVariants}
+                  >
                     Everything you need to know about VOCLY AI
                   </motion.p>
                 </motion.div>
 
-                <motion.div className="max-w-4xl mx-auto animate-fade-in" style={{
-                animationDelay: '0.1s'
-              }} variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{
-                once: true,
-                margin: "-100px"
-              }}>
+                <motion.div
+                  className="max-w-4xl mx-auto animate-fade-in"
+                  style={{ animationDelay: '0.1s' }}
+                  variants={fadeUpVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                >
                   <Accordion type="single" collapsible className="space-y-4 sm:space-y-6">
-                    {faqItems.map((item, index) => <div key={index} className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden">
+                    {faqItems.map((item, index) => (
+                      <div
+                        key={index}
+                        className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden"
+                      >
                         <AccordionItem value={`item-${index + 1}`} className="border-none">
                           <AccordionTrigger className="px-6 sm:px-8 py-4 sm:py-6 text-left text-base sm:text-lg font-semibold text-white hover:text-cyan-400 transition-colors focus-visible">
                             {item.question}
@@ -345,20 +355,26 @@ const Demo = () => {
                             {item.answer}
                           </AccordionContent>
                         </AccordionItem>
-                      </div>)}
+                      </div>
+                    ))}
                   </Accordion>
                 </motion.div>
 
-                <motion.div className="text-center animate-fade-in mt-12 sm:mt-16" style={{
-                animationDelay: '0.4s'
-              }} variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{
-                once: true,
-                margin: "-100px"
-              }}>
+                <motion.div
+                  className="text-center animate-fade-in mt-12 sm:mt-16"
+                  style={{ animationDelay: '0.4s' }}
+                  variants={fadeUpVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                >
                   <p className="text-gray-400 mb-4 sm:mb-6 responsive-text">
                     Need a custom solution? Let's talk about your specific requirements.
                   </p>
-                  <Button onClick={() => scrollToSection('contact')} className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 focus-visible">
+                  <Button
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl hover:scale-105 transition-all duration-300 focus-visible"
+                  >
                     Contact Sales Team
                   </Button>
                 </motion.div>
