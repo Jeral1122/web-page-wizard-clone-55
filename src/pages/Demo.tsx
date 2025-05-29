@@ -8,6 +8,16 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
+// Type declarations for Vapi SDK
+declare global {
+  interface Window {
+    vapiSDK?: {
+      run: (config: any) => any;
+    };
+    vapiInstance?: any;
+  }
+}
+
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -84,6 +94,37 @@ const Demo = () => {
             assistant: assistant,
             config: buttonConfig,
           });
+
+          // Add event listeners
+          vapiInstance.on('speech-start', () => {
+            console.log('Speech has started');
+          });
+
+          vapiInstance.on('speech-end', () => {
+            console.log('Speech has ended');
+          });
+
+          vapiInstance.on('call-start', () => {
+            console.log('Call has started');
+          });
+
+          vapiInstance.on('call-end', () => {
+            console.log('Call has stopped');
+          });
+
+          vapiInstance.on('volume-level', (volume: number) => {
+            console.log(`Assistant volume level: ${volume}`);
+          });
+
+          // Function calls and transcripts will be sent via messages
+          vapiInstance.on('message', (message: any) => {
+            console.log(message);
+          });
+
+          vapiInstance.on('error', (e: any) => {
+            console.error(e)
+          });
+
         } catch (error) {
           console.error('Error initializing Vapi:', error);
         }
@@ -101,6 +142,36 @@ const Demo = () => {
                 apiKey: apiKey,
                 assistant: assistant,
                 config: buttonConfig,
+              });
+
+              // Add event listeners
+              vapiInstance.on('speech-start', () => {
+                console.log('Speech has started');
+              });
+
+              vapiInstance.on('speech-end', () => {
+                console.log('Speech has ended');
+              });
+
+              vapiInstance.on('call-start', () => {
+                console.log('Call has started');
+              });
+
+              vapiInstance.on('call-end', () => {
+                console.log('Call has stopped');
+              });
+
+              vapiInstance.on('volume-level', (volume: number) => {
+                console.log(`Assistant volume level: ${volume}`);
+              });
+
+              // Function calls and transcripts will be sent via messages
+              vapiInstance.on('message', (message: any) => {
+                console.log(message);
+              });
+
+              vapiInstance.on('error', (e: any) => {
+                console.error(e)
               });
             }
           } catch (error) {
