@@ -260,7 +260,17 @@ const Demo = () => {
               
               <motion.div variants={fadeUpVariants}>
                 <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 max-w-md mx-auto mb-6 sm:mb-8">
-                  
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-slate-900" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-white">Have a quick question?</h3>
+                        <p className="text-gray-400 text-sm">Talk with our AI assistant</p>
+                      </div>
+                    </div>
+                  </CardContent>
                 </Card>
               </motion.div>
               
