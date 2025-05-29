@@ -17,7 +17,6 @@ declare global {
     vapiInstance?: any;
   }
 }
-
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,29 +60,31 @@ const Demo = () => {
       const buttonConfig = {
         position: "bottom-right",
         offset: "40px",
-        width: "80px", // Made bigger
-        height: "80px", // Made bigger
+        width: "80px",
+        // Made bigger
+        height: "80px",
+        // Made bigger
         idle: {
-          color: `rgb(93, 254, 202)`, 
+          color: `rgb(93, 254, 202)`,
           type: "pill",
           title: "Have a quick question?",
           subtitle: "Talk with our AI assistant",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`
         },
         loading: {
           color: `rgb(93, 124, 202)`,
           type: "pill",
           title: "Connecting...",
           subtitle: "Please wait",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`
         },
         active: {
           color: `rgb(255, 0, 0)`,
           type: "pill",
           title: "Call is in progress...",
           subtitle: "End the call.",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
-        },
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`
+        }
       };
 
       // Check if Vapi script is already loaded
@@ -92,26 +93,22 @@ const Demo = () => {
           vapiInstance = window.vapiSDK.run({
             apiKey: apiKey,
             assistant: assistant,
-            config: buttonConfig,
+            config: buttonConfig
           });
 
           // Add event listeners
           vapiInstance.on('speech-start', () => {
             console.log('Speech has started');
           });
-
           vapiInstance.on('speech-end', () => {
             console.log('Speech has ended');
           });
-
           vapiInstance.on('call-start', () => {
             console.log('Call has started');
           });
-
           vapiInstance.on('call-end', () => {
             console.log('Call has stopped');
           });
-
           vapiInstance.on('volume-level', (volume: number) => {
             console.log(`Assistant volume level: ${volume}`);
           });
@@ -120,11 +117,9 @@ const Demo = () => {
           vapiInstance.on('message', (message: any) => {
             console.log(message);
           });
-
           vapiInstance.on('error', (e: any) => {
-            console.error(e)
+            console.error(e);
           });
-
         } catch (error) {
           console.error('Error initializing Vapi:', error);
         }
@@ -134,33 +129,28 @@ const Demo = () => {
         script.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
         script.defer = true;
         script.async = true;
-        
         script.onload = function () {
           try {
             if (window.vapiSDK) {
               vapiInstance = window.vapiSDK.run({
                 apiKey: apiKey,
                 assistant: assistant,
-                config: buttonConfig,
+                config: buttonConfig
               });
 
               // Add event listeners
               vapiInstance.on('speech-start', () => {
                 console.log('Speech has started');
               });
-
               vapiInstance.on('speech-end', () => {
                 console.log('Speech has ended');
               });
-
               vapiInstance.on('call-start', () => {
                 console.log('Call has started');
               });
-
               vapiInstance.on('call-end', () => {
                 console.log('Call has stopped');
               });
-
               vapiInstance.on('volume-level', (volume: number) => {
                 console.log(`Assistant volume level: ${volume}`);
               });
@@ -169,24 +159,20 @@ const Demo = () => {
               vapiInstance.on('message', (message: any) => {
                 console.log(message);
               });
-
               vapiInstance.on('error', (e: any) => {
-                console.error(e)
+                console.error(e);
               });
             }
           } catch (error) {
             console.error('Error initializing Vapi after script load:', error);
           }
         };
-        
-        script.onerror = function() {
+        script.onerror = function () {
           console.error('Failed to load Vapi script');
         };
-        
         document.head.appendChild(script);
       }
     };
-
     initVapi();
 
     // Cleanup function
@@ -201,7 +187,6 @@ const Demo = () => {
       }
     };
   }, []);
-
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -243,8 +228,7 @@ const Demo = () => {
     question: "How quickly can I get started?",
     answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
   }];
-  return (
-    <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-20 responsive-padding">
@@ -276,13 +260,7 @@ const Demo = () => {
               
               <motion.div variants={fadeUpVariants}>
                 <Card className="bg-slate-800/50 backdrop-blur-lg border border-slate-700 max-w-md mx-auto mb-6 sm:mb-8">
-                  <CardContent className="p-6 text-center">
-                    <Phone className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-white mb-2">Live AI Assistant</h3>
-                    <p className="text-gray-300">
-                      Click the phone button in the bottom right to experience our AI voice assistant in action.
-                    </p>
-                  </CardContent>
+                  
                 </Card>
               </motion.div>
               
@@ -348,8 +326,6 @@ const Demo = () => {
       </div>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Demo;
