@@ -258,8 +258,16 @@ const Demo = () => {
                 Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button in the bottom right corner to start a conversation.
               </motion.p>
               
-              <motion.div variants={fadeUpVariants}>
-                
+              <motion.div variants={fadeUpVariants} className="max-w-md mx-auto mb-8 sm:mb-12">
+                <Card className="bg-slate-800/50 border-slate-700/50 backdrop-blur-sm">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Phone className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Have a quick question?</h3>
+                    <p className="text-gray-400 text-sm">Talk with our AI assistant</p>
+                  </CardContent>
+                </Card>
               </motion.div>
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
