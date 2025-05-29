@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -17,6 +18,7 @@ declare global {
     vapiInstance?: any;
   }
 }
+
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +38,7 @@ const Demo = () => {
       }
     }
   };
+
   const staggerContainer = {
     hidden: {},
     visible: {
@@ -185,6 +188,7 @@ const Demo = () => {
       }
     };
   }, []);
+
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
@@ -210,56 +214,97 @@ const Demo = () => {
       }
     }
   }, [navigate, location.pathname]);
-  const faqItems = [{
-    question: "What can VOCLY AI actually do?",
-    answer: "VOCLY AI can handle inbound calls, make outbound calls for appointments and follow-ups, qualify leads, book appointments, and provide 24/7 customer service with human-like conversation capabilities."
-  }, {
-    question: "How is this different from other AI tools?",
-    answer: "Unlike text-based AI tools, VOCLY AI specializes in voice interactions with natural conversation flow, real-time responses, and integration with your existing business systems for seamless operations."
-  }, {
-    question: "Is my data secure with VOCLY AI?",
-    answer: "Yes, we use enterprise-grade encryption and security protocols. All call data is stored securely and you maintain full control over your customer information."
-  }, {
-    question: "What kind of support do you offer?",
-    answer: "We provide 24/7 technical support, dedicated account managers for enterprise clients, and comprehensive onboarding to ensure successful implementation."
-  }, {
-    question: "How quickly can I get started?",
-    answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
-  }];
-  return <div className="min-h-screen bg-slate-900">
+
+  const faqItems = [
+    {
+      question: "What can VOCLY AI actually do?",
+      answer: "VOCLY AI can handle inbound calls, make outbound calls for appointments and follow-ups, qualify leads, book appointments, and provide 24/7 customer service with human-like conversation capabilities."
+    },
+    {
+      question: "How is this different from other AI tools?",
+      answer: "Unlike text-based AI tools, VOCLY AI specializes in voice interactions with natural conversation flow, real-time responses, and integration with your existing business systems for seamless operations."
+    },
+    {
+      question: "Is my data secure with VOCLY AI?",
+      answer: "Yes, we use enterprise-grade encryption and security protocols. All call data is stored securely and you maintain full control over your customer information."
+    },
+    {
+      question: "What kind of support do you offer?",
+      answer: "We provide 24/7 technical support, dedicated account managers for enterprise clients, and comprehensive onboarding to ensure successful implementation."
+    },
+    {
+      question: "How quickly can I get started?",
+      answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-20 responsive-padding">
         <div className="responsive-container">
           <div className="text-center">
-            <motion.div className="mb-6 sm:mb-8" variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }}>
-              <Link to="/" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6 sm:mb-8 focus-visible">
+            <motion.div 
+              className="mb-6 sm:mb-8" 
+              variants={fadeUpVariants} 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <Link 
+                to="/" 
+                className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6 sm:mb-8 focus-visible"
+              >
                 <ArrowLeft className="w-4 h-4" />
                 Back to Home
               </Link>
             </motion.div>
 
-            <motion.div className="animate-fade-in mb-12 sm:mb-20" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{
-            once: true,
-            margin: "-100px"
-          }}>
-              <motion.div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-transparent rounded-full flex items-center justify-center mb-6 sm:mb-8 mx-auto animate-pulse-slow" variants={fadeUpVariants}>
+            <motion.div 
+              className="animate-fade-in mb-12 sm:mb-20" 
+              variants={staggerContainer} 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <motion.div 
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-transparent rounded-full flex items-center justify-center mb-6 sm:mb-8 mx-auto animate-pulse-slow" 
+                variants={fadeUpVariants}
+              >
                 <Phone className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cyan-400" />
               </motion.div>
               
-              <motion.h1 className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" variants={fadeUpVariants}>
+              <motion.h1 
+                className="responsive-heading font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6" 
+                variants={fadeUpVariants}
+              >
                 Demo
               </motion.h1>
               
-              <motion.p className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" variants={fadeUpVariants}>
+              <motion.p 
+                className="responsive-text text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto" 
+                variants={fadeUpVariants}
+              >
                 Never lose revenue from missed calls again. Try our AI voice assistant below - click the phone button to start a conversation.
               </motion.p>
               
-              <motion.div className="flex justify-center mb-8 sm:mb-12" variants={fadeUpVariants}>
-                
+              {/* AI Assistant Visual Card */}
+              <motion.div 
+                className="flex justify-center mb-8 sm:mb-12" 
+                variants={fadeUpVariants}
+              >
+                <Card className="glass-card max-w-md">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mb-4 mx-auto animate-pulse-slow">
+                      <Phone className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-2">AI Voice Assistant</h3>
+                    <p className="text-gray-300 text-sm">
+                      Click the phone button that appears to test our AI assistant
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
@@ -324,6 +369,8 @@ const Demo = () => {
       </div>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Demo;
