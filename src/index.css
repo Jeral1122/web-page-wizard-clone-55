@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -252,11 +251,12 @@
   }
 }
 
-/* Vapi AI Assistant Center Positioning */
+/* Vapi AI Assistant Positioning - Bottom Left */
 .vapi-root {
   position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  z-index: 9999 !important; /* Make sure it's on top */
+  bottom: 40px !important;
+  left: 40px !important;
+  top: auto !important;
+  transform: none !important;
+  z-index: 9999 !important;
 }
