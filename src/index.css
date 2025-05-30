@@ -251,12 +251,17 @@
   }
 }
 
-/* Override Vapi button placement */
-.vapi-root {
+/* Override Vapi button placement - center it on screen */
+.vapi-root,
+[data-vapi-root],
+.vapi-widget,
+[class*="vapi"] {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   z-index: 9999 !important;
-  box-shadow: 0 0 20px #5dfeaa; /* optional glow effect */
+  box-shadow: 0 0 20px #5dfeaa !important;
+  bottom: auto !important;
+  right: auto !important;
 }
