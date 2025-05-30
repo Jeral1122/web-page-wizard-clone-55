@@ -56,35 +56,53 @@ const Demo = () => {
           return;
         }
 
-        // Create button element
+        // Create button element with responsive sizing
         const button = document.createElement('button');
-        button.innerHTML = `
-          <div style="
-            width: 80px;
-            height: 80px;
-            background: rgb(93, 254, 202);
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 12px rgba(93, 254, 202, 0.3);
-          ">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-        `;
-
-        button.onclick = () => {
-          vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+        const updateButtonStyle = (bgColor: string, icon: string) => {
+          button.innerHTML = `
+            <div style="
+              width: min(80px, 20vw);
+              height: min(80px, 20vw);
+              min-width: 60px;
+              min-height: 60px;
+              background: ${bgColor};
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              border: none;
+              box-shadow: 0 4px 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.3)')};
+              position: relative;
+            ">
+              ${icon}
+            </div>
+          `;
         };
 
-        // Add hover effects
+        // Initial button state
+        updateButtonStyle('rgb(93, 254, 202)', `
+          <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        `);
+
+        let isCallActive = false;
+
+        button.onclick = () => {
+          if (isCallActive) {
+            vapi.stop();
+          } else {
+            vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+          }
+        };
+
+        // Add responsive hover effects
         button.onmouseenter = () => {
-          button.style.transform = 'scale(1.05)';
+          if (!isCallActive) {
+            button.style.transform = 'scale(1.05)';
+          }
         };
         button.onmouseleave = () => {
           button.style.transform = 'scale(1)';
@@ -95,25 +113,6 @@ const Demo = () => {
         // Add event listeners
         vapi.on('speech-start', () => {
           console.log('Speech has started');
-          button.innerHTML = `
-            <div style="
-              width: 80px;
-              height: 80px;
-              background: rgb(255, 0, 0);
-              border-radius: 40px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.3s ease;
-              border: none;
-              box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-            ">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 3L6 15l3 3 12-12-3-3zM9 13.5L4.5 9"/>
-              </svg>
-            </div>
-          `;
         });
 
         vapi.on('speech-end', () => {
@@ -122,30 +121,25 @@ const Demo = () => {
 
         vapi.on('call-start', () => {
           console.log('Call has started');
+          isCallActive = true;
+          // Change to phone-off icon when call is active
+          updateButtonStyle('rgb(255, 59, 48)', `
+            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m15.5 7.5 3 3m0-3-3 3"/>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          `);
         });
 
         vapi.on('call-end', () => {
           console.log('Call has stopped');
-          // Reset button appearance
-          button.innerHTML = `
-            <div style="
-              width: 80px;
-              height: 80px;
-              background: rgb(93, 254, 202);
-              border-radius: 40px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.3s ease;
-              border: none;
-              box-shadow: 0 4px 12px rgba(93, 254, 202, 0.3);
-            ">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-          `;
+          isCallActive = false;
+          // Reset to original phone icon
+          updateButtonStyle('rgb(93, 254, 202)', `
+            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          `);
         });
 
         vapi.on('volume-level', (volume: number) => {
@@ -158,6 +152,13 @@ const Demo = () => {
 
         vapi.on('error', (e: any) => {
           console.error(e);
+          isCallActive = false;
+          // Reset button on error
+          updateButtonStyle('rgb(93, 254, 202)', `
+            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          `);
         });
 
       } catch (error) {
@@ -169,6 +170,7 @@ const Demo = () => {
     const timer = setTimeout(initVapi, 100);
     return () => clearTimeout(timer);
   }, []);
+
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
     if (location.pathname !== '/') {
