@@ -226,7 +226,7 @@ const Demo = () => {
     question: "How quickly can I get started?",
     answer: "Most clients can be up and running within 24-48 hours. Our team handles the setup and integration with your existing systems."
   }];
-  return <div className="min-h-screen bg-slate-900">
+  return <div className="min-h-screen bg-slate-900 demo-page">
       <Navigation />
       
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-20 responsive-padding">
