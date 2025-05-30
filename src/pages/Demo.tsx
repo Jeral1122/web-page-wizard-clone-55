@@ -7,6 +7,7 @@ import { Phone, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import Vapi from "@vapi-ai/web";
 
 // Type declarations for Vapi SDK
 declare global {
@@ -54,136 +55,73 @@ const Demo = () => {
 
     // Initialize Vapi AI when component mounts
     const initVapi = () => {
-      var vapiInstance = null;
-      const assistant = "33213eff-d8a9-41bf-b394-7487a2f8f5a9";
-      const apiKey = "61e6d51e-4990-4f1a-81c5-322ee3d44293";
-      const buttonConfig = {
-        offset: "40px",
-        width: "80px",
-        height: "80px",
-        position: "bottom-left",
-        idle: {
-          color: `rgb(93, 254, 202)`,
-          type: "pill",
-          title: "Have a quick question?",
-          subtitle: "Talk with our AI assistant",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`
-        },
-        loading: {
-          color: `rgb(93, 124, 202)`,
-          type: "pill",
-          title: "Connecting...",
-          subtitle: "Please wait",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`
-        },
-        active: {
-          color: `rgb(255, 0, 0)`,
-          type: "pill",
-          title: "Call is in progress...",
-          subtitle: "End the call.",
-          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`
-        }
-      };
+      try {
+        const vapi = new Vapi("61e6d51e-4990-4f1a-81c5-322ee3d44293");
 
-      // Check if Vapi script is already loaded
-      if (window.vapiSDK) {
-        try {
-          vapiInstance = window.vapiSDK.run({
-            apiKey: apiKey,
-            assistant: assistant,
-            config: buttonConfig
-          });
-
-          // Add event listeners
-          vapiInstance.on('speech-start', () => {
-            console.log('Speech has started');
-          });
-          vapiInstance.on('speech-end', () => {
-            console.log('Speech has ended');
-          });
-          vapiInstance.on('call-start', () => {
-            console.log('Call has started');
-          });
-          vapiInstance.on('call-end', () => {
-            console.log('Call has stopped');
-          });
-          vapiInstance.on('volume-level', (volume: number) => {
-            console.log(`Assistant volume level: ${volume}`);
-          });
-
-          // Function calls and transcripts will be sent via messages
-          vapiInstance.on('message', (message: any) => {
-            console.log(message);
-          });
-          vapiInstance.on('error', (e: any) => {
-            console.error(e);
-          });
-        } catch (error) {
-          console.error('Error initializing Vapi:', error);
-        }
-      } else {
-        // Load Vapi script dynamically
-        const script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-        script.defer = true;
-        script.async = true;
-        script.onload = function () {
-          try {
-            if (window.vapiSDK) {
-              vapiInstance = window.vapiSDK.run({
-                apiKey: apiKey,
-                assistant: assistant,
-                config: buttonConfig
-              });
-
-              // Add event listeners
-              vapiInstance.on('speech-start', () => {
-                console.log('Speech has started');
-              });
-              vapiInstance.on('speech-end', () => {
-                console.log('Speech has ended');
-              });
-              vapiInstance.on('call-start', () => {
-                console.log('Call has started');
-              });
-              vapiInstance.on('call-end', () => {
-                console.log('Call has stopped');
-              });
-              vapiInstance.on('volume-level', (volume: number) => {
-                console.log(`Assistant volume level: ${volume}`);
-              });
-
-              // Function calls and transcripts will be sent via messages
-              vapiInstance.on('message', (message: any) => {
-                console.log(message);
-              });
-              vapiInstance.on('error', (e: any) => {
-                console.error(e);
-              });
+        vapi.mount({
+          el: "#vapi-button-container",
+          config: {
+            assistant: "33213eff-d8a9-41bf-b394-7487a2f8f5a9",
+            mode: "embedded",
+            buttonConfig: {
+              width: "80px",
+              height: "80px",
+              idle: {
+                color: `rgb(93, 254, 202)`,
+                type: "pill",
+                title: "Have a quick question?",
+                subtitle: "Talk with our AI assistant",
+                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`
+              },
+              loading: {
+                color: `rgb(93, 124, 202)`,
+                type: "pill",
+                title: "Connecting...",
+                subtitle: "Please wait",
+                icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`
+              },
+              active: {
+                color: `rgb(255, 0, 0)`,
+                type: "pill",
+                title: "Call is in progress...",
+                subtitle: "End the call.",
+                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`
+              }
             }
-          } catch (error) {
-            console.error('Error initializing Vapi after script load:', error);
           }
-        };
-        script.onerror = function () {
-          console.error('Failed to load Vapi script');
-        };
-        document.head.appendChild(script);
-      }
-    };
-    initVapi();
+        });
 
-    // Cleanup function
-    return () => {
-      // Clean up Vapi instance if needed
-      if (window.vapiInstance && window.vapiInstance.stop) {
-        try {
-          window.vapiInstance.stop();
-        } catch (error) {
-          console.log('Error stopping Vapi instance:', error);
-        }
+        // Add event listeners
+        vapi.on('speech-start', () => {
+          console.log('Speech has started');
+        });
+        vapi.on('speech-end', () => {
+          console.log('Speech has ended');
+        });
+        vapi.on('call-start', () => {
+          console.log('Call has started');
+        });
+        vapi.on('call-end', () => {
+          console.log('Call has stopped');
+        });
+        vapi.on('volume-level', (volume: number) => {
+          console.log(`Assistant volume level: ${volume}`);
+        });
+        vapi.on('message', (message: any) => {
+          console.log(message);
+        });
+        vapi.on('error', (e: any) => {
+          console.error(e);
+        });
+
+      } catch (error) {
+        console.error('Error initializing Vapi:', error);
       }
     };
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(initVapi, 100);
+    return () => clearTimeout(timer);
   }, []);
   const scrollToSection = useCallback((sectionId: string) => {
     // If we're not on the home page, navigate to home first
@@ -259,7 +197,7 @@ const Demo = () => {
               </motion.p>
               
               <motion.div className="flex justify-center mb-8 sm:mb-12" variants={fadeUpVariants}>
-                
+                <div id="vapi-button-container" style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}></div>
               </motion.div>
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>

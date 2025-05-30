@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -249,19 +250,4 @@
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Override Vapi button placement - center it on screen only on demo page */
-.demo-page .vapi-root,
-.demo-page [data-vapi-root],
-.demo-page .vapi-widget,
-.demo-page [class*="vapi"] {
-  position: fixed !important;
-  top: 60% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  z-index: 9999 !important;
-  box-shadow: 0 0 20px #5dfeaa !important;
-  bottom: auto !important;
-  right: auto !important;
 }
