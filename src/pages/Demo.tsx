@@ -9,15 +9,6 @@ import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Vapi from "@vapi-ai/web";
 
-// Type declarations for Vapi SDK
-declare global {
-  interface Window {
-    vapiSDK?: {
-      run: (config: any) => any;
-    };
-    vapiInstance?: any;
-  }
-}
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -58,58 +49,113 @@ const Demo = () => {
       try {
         const vapi = new Vapi("61e6d51e-4990-4f1a-81c5-322ee3d44293");
 
-        vapi.mount({
-          el: "#vapi-button-container",
-          config: {
-            assistant: "33213eff-d8a9-41bf-b394-7487a2f8f5a9",
-            mode: "embedded",
-            buttonConfig: {
-              width: "80px",
-              height: "80px",
-              idle: {
-                color: `rgb(93, 254, 202)`,
-                type: "pill",
-                title: "Have a quick question?",
-                subtitle: "Talk with our AI assistant",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`
-              },
-              loading: {
-                color: `rgb(93, 124, 202)`,
-                type: "pill",
-                title: "Connecting...",
-                subtitle: "Please wait",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`
-              },
-              active: {
-                color: `rgb(255, 0, 0)`,
-                type: "pill",
-                title: "Call is in progress...",
-                subtitle: "End the call.",
-                icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`
-              }
-            }
-          }
-        });
+        // Check if the container exists
+        const container = document.getElementById("vapi-button-container");
+        if (!container) {
+          console.error('Vapi container not found');
+          return;
+        }
+
+        // Create button element
+        const button = document.createElement('button');
+        button.innerHTML = `
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: rgb(93, 254, 202);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 12px rgba(93, 254, 202, 0.3);
+          ">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+        `;
+
+        button.onclick = () => {
+          vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+        };
+
+        // Add hover effects
+        button.onmouseenter = () => {
+          button.style.transform = 'scale(1.05)';
+        };
+        button.onmouseleave = () => {
+          button.style.transform = 'scale(1)';
+        };
+
+        container.appendChild(button);
 
         // Add event listeners
         vapi.on('speech-start', () => {
           console.log('Speech has started');
+          button.innerHTML = `
+            <div style="
+              width: 80px;
+              height: 80px;
+              background: rgb(255, 0, 0);
+              border-radius: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              border: none;
+              box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+            ">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 3L6 15l3 3 12-12-3-3zM9 13.5L4.5 9"/>
+              </svg>
+            </div>
+          `;
         });
+
         vapi.on('speech-end', () => {
           console.log('Speech has ended');
         });
+
         vapi.on('call-start', () => {
           console.log('Call has started');
         });
+
         vapi.on('call-end', () => {
           console.log('Call has stopped');
+          // Reset button appearance
+          button.innerHTML = `
+            <div style="
+              width: 80px;
+              height: 80px;
+              background: rgb(93, 254, 202);
+              border-radius: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              border: none;
+              box-shadow: 0 4px 12px rgba(93, 254, 202, 0.3);
+            ">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+          `;
         });
+
         vapi.on('volume-level', (volume: number) => {
           console.log(`Assistant volume level: ${volume}`);
         });
+
         vapi.on('message', (message: any) => {
           console.log(message);
         });
+
         vapi.on('error', (e: any) => {
           console.error(e);
         });
@@ -264,4 +310,5 @@ const Demo = () => {
       <Footer />
     </div>;
 };
+
 export default Demo;
