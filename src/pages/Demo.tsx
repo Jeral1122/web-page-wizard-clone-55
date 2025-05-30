@@ -264,7 +264,7 @@ const Demo = () => {
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
                 <div className="text-gray-400 text-sm sm:text-base">
-                  <p>The AI assistant can help answer questions about our services and schedule consultations.</p>
+                  
                 </div>
               </motion.div>
             </motion.div>
