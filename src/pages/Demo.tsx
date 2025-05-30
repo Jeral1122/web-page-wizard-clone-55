@@ -5,13 +5,14 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Phone, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 import Vapi from "@vapi-ai/web";
 
 const Demo = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isInitiating, setIsInitiating] = useState(false);
 
   // Animation variants
   const fadeUpVariants = {
@@ -56,10 +57,30 @@ const Demo = () => {
           return;
         }
 
-        // Create button element with responsive sizing
+        // Create button element with enhanced animations
         const button = document.createElement('button');
-        const updateButtonStyle = (bgColor: string, icon: string) => {
+        
+        const updateButtonStyle = (bgColor: string, icon: string, isAnimating: boolean = false) => {
+          const pulseAnimation = isAnimating ? `
+            animation: pulse-glow 1.5s ease-in-out infinite;
+            @keyframes pulse-glow {
+              0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 4px 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.3)')},
+                           0 0 20px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.2)')};
+              }
+              50% { 
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.5)')},
+                           0 0 30px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.4)')};
+              }
+            }
+          ` : '';
+
           button.innerHTML = `
+            <style>
+              ${pulseAnimation}
+            </style>
             <div style="
               width: min(80px, 20vw);
               height: min(80px, 20vw);
@@ -71,46 +92,76 @@ const Demo = () => {
               align-items: center;
               justify-content: center;
               cursor: pointer;
-              transition: all 0.3s ease;
+              transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
               border: none;
-              box-shadow: 0 4px 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.3)')};
+              box-shadow: 0 4px 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.3)')},
+                         0 0 20px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.1)')};
               position: relative;
+              ${isAnimating ? 'animation: pulse-glow 1.5s ease-in-out infinite;' : ''}
             ">
               ${icon}
             </div>
           `;
         };
 
-        // Initial button state
-        updateButtonStyle('rgb(93, 254, 202)', `
+        // Initial button state with breathing animation
+        updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
           <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
-        `);
+        `, true);
 
         let isCallActive = false;
 
-        button.onclick = () => {
+        button.onclick = async () => {
           if (isCallActive) {
+            // End call immediately
             vapi.stop();
-          } else {
-            vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+            return;
+          }
+
+          // Immediate visual feedback
+          setIsInitiating(true);
+          updateButtonStyle('linear-gradient(135deg, rgb(251, 191, 36) 0%, rgb(245, 158, 11) 100%)', `
+            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 6v6"/>
+              <path d="m20.2 7.8-4.2 4.2m-4 4-4.2 4.2"/>
+              <path d="M7.8 3.8l4.2 4.2m4 4l4.2 4.2"/>
+            </svg>
+          `, true);
+
+          try {
+            // Start call with minimal delay
+            await vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+          } catch (error) {
+            console.error('Failed to start call:', error);
+            setIsInitiating(false);
+            // Reset to initial state on error
+            updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
+              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            `, true);
           }
         };
 
-        // Add responsive hover effects
+        // Enhanced hover effects
         button.onmouseenter = () => {
-          if (!isCallActive) {
-            button.style.transform = 'scale(1.05)';
+          if (!isCallActive && !isInitiating) {
+            button.style.transform = 'scale(1.1)';
+            button.style.filter = 'brightness(1.1)';
           }
         };
+        
         button.onmouseleave = () => {
           button.style.transform = 'scale(1)';
+          button.style.filter = 'brightness(1)';
         };
 
         container.appendChild(button);
 
-        // Add event listeners
+        // Add event listeners with enhanced animations
         vapi.on('speech-start', () => {
           console.log('Speech has started');
         });
@@ -122,24 +173,26 @@ const Demo = () => {
         vapi.on('call-start', () => {
           console.log('Call has started');
           isCallActive = true;
-          // Change to phone-off icon when call is active
-          updateButtonStyle('rgb(255, 59, 48)', `
+          setIsInitiating(false);
+          // Animated transition to active call state
+          updateButtonStyle('linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(220, 38, 38) 100%)', `
             <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="m15.5 7.5 3 3m0-3-3 3"/>
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-          `);
+          `, true);
         });
 
         vapi.on('call-end', () => {
           console.log('Call has stopped');
           isCallActive = false;
-          // Reset to original phone icon
-          updateButtonStyle('rgb(93, 254, 202)', `
+          setIsInitiating(false);
+          // Smooth transition back to initial state
+          updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
             <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-          `);
+          `, true);
         });
 
         vapi.on('volume-level', (volume: number) => {
@@ -153,12 +206,24 @@ const Demo = () => {
         vapi.on('error', (e: any) => {
           console.error(e);
           isCallActive = false;
-          // Reset button on error
-          updateButtonStyle('rgb(93, 254, 202)', `
+          setIsInitiating(false);
+          // Reset button on error with error indication
+          updateButtonStyle('linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(185, 28, 28) 100%)', `
             <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m15 9-6 6"/>
+              <path d="m9 9 6 6"/>
             </svg>
           `);
+          
+          // Reset to normal after 2 seconds
+          setTimeout(() => {
+            updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
+              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            `, true);
+          }, 2000);
         });
 
       } catch (error) {
@@ -166,9 +231,8 @@ const Demo = () => {
       }
     };
 
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(initVapi, 100);
-    return () => clearTimeout(timer);
+    // Immediate initialization for faster response
+    initVapi();
   }, []);
 
   const scrollToSection = useCallback((sectionId: string) => {
@@ -250,7 +314,12 @@ const Demo = () => {
               
               <motion.div className="space-y-4" variants={fadeUpVariants}>
                 <div className="text-gray-400 text-sm sm:text-base">
-                  
+                  {isInitiating && (
+                    <div className="flex items-center justify-center gap-2 text-amber-400">
+                      <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
+                      Connecting to AI assistant...
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </motion.div>
