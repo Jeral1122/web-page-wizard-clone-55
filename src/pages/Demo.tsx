@@ -1,10 +1,9 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Phone, ArrowLeft, PhoneCall, Check, X, DollarSign } from 'lucide-react';
+import { Phone, ArrowLeft, PhoneCall, Check, X, DollarSign, ArrowDown } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
@@ -362,7 +361,7 @@ const Demo = () => {
                 <div id="vapi-button-container" style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}></div>
               </motion.div>
               
-              <motion.div className="space-y-4" variants={fadeUpVariants}>
+              <motion.div className="space-y-4 mb-12" variants={fadeUpVariants}>
                 <div className="text-gray-400 text-sm sm:text-base">
                   {isInitiating && (
                     <div className="flex items-center justify-center gap-2 text-amber-400">
@@ -371,6 +370,49 @@ const Demo = () => {
                     </div>
                   )}
                 </div>
+              </motion.div>
+
+              {/* Call to Action Button */}
+              <motion.div 
+                className="mb-16 sm:mb-20"
+                variants={fadeUpVariants} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <motion.div
+                  className="bg-gradient-to-r from-cyan-400/10 to-purple-600/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-8 max-w-2xl mx-auto"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.h3 
+                    className="text-2xl font-bold text-white mb-4"
+                    variants={fadeUpVariants}
+                  >
+                    Ready to Transform Your Business?
+                  </motion.h3>
+                  <motion.p 
+                    className="text-gray-300 mb-6 text-lg"
+                    variants={fadeUpVariants}
+                  >
+                    Join thousands of businesses using VOCLY AI to never miss another opportunity.
+                  </motion.p>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Button 
+                      onClick={() => scrollToSection('pricing')}
+                      className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-slate-900 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/25 focus-visible group"
+                    >
+                      <span className="flex items-center gap-2">
+                        Get Started Now
+                        <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+                      </span>
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </motion.div>
 
