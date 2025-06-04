@@ -114,19 +114,54 @@ const Demo = () => {
             }
           ` : '';
 
+          // Mobile-responsive styles
+          const mobileStyles = `
+            @media (max-width: 480px) {
+              .vapi-button {
+                width: 80px !important;
+                height: 80px !important;
+                min-width: 80px !important;
+                min-height: 80px !important;
+              }
+              .vapi-button svg {
+                width: 32px !important;
+                height: 32px !important;
+              }
+            }
+            @media (min-width: 481px) and (max-width: 768px) {
+              .vapi-button {
+                width: 90px !important;
+                height: 90px !important;
+              }
+              .vapi-button svg {
+                width: 36px !important;
+                height: 36px !important;
+              }
+            }
+            @media (min-width: 769px) {
+              .vapi-button {
+                width: 100px !important;
+                height: 100px !important;
+              }
+              .vapi-button svg {
+                width: 40px !important;
+                height: 40px !important;
+              }
+            }
+          `;
+
           button.innerHTML = `
             <style>
               ${pulseAnimation}
               ${connectingAnimation}
               ${callStartAnimation}
+              ${mobileStyles}
             </style>
-            <div style="
-              width: min(90px, 22vw);
-              height: min(90px, 22vw);
-              min-width: 70px;
-              min-height: 70px;
-              max-width: 120px;
-              max-height: 120px;
+            <div class="vapi-button" style="
+              width: 100px;
+              height: 100px;
+              min-width: 80px;
+              min-height: 80px;
               background: ${bgColor};
               border-radius: 50%;
               display: flex;
@@ -138,6 +173,8 @@ const Demo = () => {
               box-shadow: 0 4px 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.3)')},
                          0 0 20px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.1)')};
               position: relative;
+              touch-action: manipulation;
+              -webkit-tap-highlight-color: transparent;
               ${isAnimating ? 'animation: pulse-glow 1.5s ease-in-out infinite;' : ''}
             ">
               ${icon}
