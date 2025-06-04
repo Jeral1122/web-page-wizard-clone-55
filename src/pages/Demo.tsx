@@ -153,14 +153,18 @@ const Demo = () => {
         let isCallActive = false;
 
         button.onclick = async () => {
+          console.log('Button clicked - isCallActive:', isCallActive, 'isInitiating:', isInitiating);
+          
+          // Priority 1: If call is active, end it immediately
           if (isCallActive) {
-            // End call immediately
+            console.log('Ending active call');
             vapi.stop();
             return;
           }
 
+          // Priority 2: If initiating, cancel the connection
           if (isInitiating) {
-            // Cancel connection while initiating
+            console.log('Canceling connection attempt');
             setIsInitiating(false);
             updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
               <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -170,7 +174,8 @@ const Demo = () => {
             return;
           }
 
-          // Immediate visual feedback with better connecting icon - show cancel option
+          // Priority 3: Start new call
+          console.log('Starting new call');
           setIsInitiating(true);
           updateButtonStyle('linear-gradient(135deg, rgb(251, 191, 36) 0%, rgb(245, 158, 11) 100%)', `
             <svg class="connecting-icon" width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,7 +186,6 @@ const Demo = () => {
           `, true);
 
           try {
-            // Start call with minimal delay
             await vapi.start("62a9a6cd-ec5f-45ee-a79f-ef7ee342085c");
           } catch (error) {
             console.error('Failed to start call:', error);
