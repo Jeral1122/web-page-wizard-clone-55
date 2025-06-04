@@ -133,11 +133,22 @@ const Index = () => {
             Our custom-trained AI Voice Facilitators answer calls, qualify leads, and book appointments — 24/7, with perfect memory and zero burnout. Trusted by growth-focused businesses who want real results, not hype.
           </p>
           
-          <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300 animate-scale-in w-fit mx-auto" style={{
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in" style={{
           animationDelay: '0.4s'
         }}>
-            <a href="#contact">Book a Call</a>
-          </Button>
+            <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300">
+              <Link to="/demo" className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                Try Demo
+              </Link>
+            </Button>
+            <Button asChild className="bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300">
+              <a href="#contact" className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                Book a Call
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
