@@ -55,7 +55,7 @@ const Demo = () => {
     // Initialize Vapi AI when component mounts
     const initVapi = () => {
       try {
-        const vapi = new Vapi("61e6d51e-4990-4f1a-81c5-322ee3d44293");
+        const vapi = new Vapi("4b01db2e-d52e-4114-a7bb-a81be0a175f9");
 
         // Check if the container exists
         const container = document.getElementById("vapi-button-container");
@@ -159,18 +159,30 @@ const Demo = () => {
             return;
           }
 
-          // Immediate visual feedback with better connecting icon
+          if (isInitiating) {
+            // Cancel connection while initiating
+            setIsInitiating(false);
+            updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
+              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            `, true);
+            return;
+          }
+
+          // Immediate visual feedback with better connecting icon - show cancel option
           setIsInitiating(true);
           updateButtonStyle('linear-gradient(135deg, rgb(251, 191, 36) 0%, rgb(245, 158, 11) 100%)', `
             <svg class="connecting-icon" width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m15 9-6 6"/>
+              <path d="m9 9 6 6"/>
             </svg>
           `, true);
 
           try {
             // Start call with minimal delay
-            await vapi.start("33213eff-d8a9-41bf-b394-7487a2f8f5a9");
+            await vapi.start("62a9a6cd-ec5f-45ee-a79f-ef7ee342085c");
           } catch (error) {
             console.error('Failed to start call:', error);
             setIsInitiating(false);
@@ -366,7 +378,7 @@ const Demo = () => {
                   {isInitiating && (
                     <div className="flex items-center justify-center gap-2 text-amber-400">
                       <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
-                      Connecting to AI assistant...
+                      Connecting to AI assistant... (click to cancel)
                     </div>
                   )}
                 </div>
