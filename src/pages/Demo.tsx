@@ -121,10 +121,12 @@ const Demo = () => {
               ${callStartAnimation}
             </style>
             <div style="
-              width: min(80px, 20vw);
-              height: min(80px, 20vw);
-              min-width: 60px;
-              min-height: 60px;
+              width: min(90px, 22vw);
+              height: min(90px, 22vw);
+              min-width: 70px;
+              min-height: 70px;
+              max-width: 120px;
+              max-height: 120px;
               background: ${bgColor};
               border-radius: 50%;
               display: flex;
@@ -145,15 +147,16 @@ const Demo = () => {
 
         // Initial button state with breathing animation
         updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
-          <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
         `, true);
 
         let isCallActive = false;
+        let isConnecting = false;
 
         button.onclick = async () => {
-          console.log('Button clicked - isCallActive:', isCallActive, 'isInitiating:', isInitiating);
+          console.log('Button clicked - isCallActive:', isCallActive, 'isConnecting:', isConnecting);
           
           // Priority 1: If call is active, end it immediately
           if (isCallActive) {
@@ -162,46 +165,60 @@ const Demo = () => {
             return;
           }
 
-          // Priority 2: If initiating, cancel the connection
-          if (isInitiating) {
-            console.log('Canceling connection attempt');
-            setIsInitiating(false);
-            updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
-              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            `, true);
+          // Priority 2: If already connecting, ignore additional clicks
+          if (isConnecting) {
+            console.log('Already connecting, ignoring click');
             return;
           }
 
-          // Priority 3: Start new call
+          // Priority 3: Start new call with improved connection handling
           console.log('Starting new call');
-          setIsInitiating(true);
-          updateButtonStyle('linear-gradient(135deg, rgb(251, 191, 36) 0%, rgb(245, 158, 11) 100%)', `
-            <svg class="connecting-icon" width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="m15 9-6 6"/>
-              <path d="m9 9 6 6"/>
-            </svg>
-          `, true);
-
-          try {
-            await vapi.start("62a9a6cd-ec5f-45ee-a79f-ef7ee342085c");
-          } catch (error) {
-            console.error('Failed to start call:', error);
-            setIsInitiating(false);
-            // Reset to initial state on error
-            updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
-              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          isConnecting = true;
+          
+          // Use a small delay to ensure button state updates properly
+          setTimeout(() => {
+            updateButtonStyle('linear-gradient(135deg, rgb(251, 191, 36) 0%, rgb(245, 158, 11) 100%)', `
+              <svg class="connecting-icon" width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6m0 6v6"/>
+                <path d="m5.64 7.64 4.24 4.24m4.24 0 4.24-4.24"/>
+                <path d="m7.64 16.36 4.24-4.24m4.24 4.24 4.24-4.24"/>
               </svg>
             `, true);
+          }, 50);
+
+          try {
+            console.log('Attempting to start Vapi session...');
+            await vapi.start("62a9a6cd-ec5f-45ee-a79f-ef7ee342085c");
+            console.log('Vapi session started successfully');
+          } catch (error) {
+            console.error('Failed to start call:', error);
+            isConnecting = false;
+            setIsInitiating(false);
+            
+            // Show error state briefly
+            updateButtonStyle('linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(185, 28, 28) 100%)', `
+              <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m15 9-6 6"/>
+                <path d="m9 9 6 6"/>
+              </svg>
+            `);
+            
+            // Reset to initial state after 2 seconds
+            setTimeout(() => {
+              updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
+                <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              `, true);
+            }, 2000);
           }
         };
 
         // Enhanced hover effects
         button.onmouseenter = () => {
-          if (!isCallActive && !isInitiating) {
+          if (!isCallActive && !isConnecting) {
             button.style.transform = 'scale(1.1)';
             button.style.filter = 'brightness(1.1)';
           }
@@ -226,10 +243,11 @@ const Demo = () => {
         vapi.on('call-start', () => {
           console.log('Call has started');
           isCallActive = true;
+          isConnecting = false;
           setIsInitiating(false);
           // Animated transition to active call state with wave animation
           updateButtonStyle('linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(220, 38, 38) 100%)', `
-            <svg class="call-active-icon call-wave" width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="call-active-icon call-wave" width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="m15.5 7.5 3 3m0-3-3 3"/>
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               <circle cx="8" cy="8" r="1" fill="currentColor" opacity="0.8"/>
@@ -241,10 +259,11 @@ const Demo = () => {
         vapi.on('call-end', () => {
           console.log('Call has stopped');
           isCallActive = false;
+          isConnecting = false;
           setIsInitiating(false);
           // Smooth transition back to initial state
           updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
-            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
           `, true);
@@ -261,10 +280,11 @@ const Demo = () => {
         vapi.on('error', (e: any) => {
           console.error(e);
           isCallActive = false;
+          isConnecting = false;
           setIsInitiating(false);
           // Reset button on error with error indication
           updateButtonStyle('linear-gradient(135deg, rgb(239, 68, 68) 0%, rgb(185, 28, 28) 100%)', `
-            <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <path d="m15 9-6 6"/>
               <path d="m9 9 6 6"/>
@@ -274,10 +294,10 @@ const Demo = () => {
           // Reset to normal after 2 seconds
           setTimeout(() => {
             updateButtonStyle('linear-gradient(135deg, rgb(93, 254, 202) 0%, rgb(59, 130, 246) 100%)', `
-              <svg width="min(32px, 8vw)" height="min(32px, 8vw)" style="min-width: 24px; min-height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="min(40px, 10vw)" height="min(40px, 10vw)" style="min-width: 28px; min-height: 28px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          `, true);
+              </svg>
+            `, true);
           }, 2000);
         });
 
