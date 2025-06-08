@@ -1,3 +1,4 @@
+
 import { useState, useCallback, useMemo } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -39,7 +40,6 @@ const Navigation = () => {
     { label: 'Home', action: () => scrollToSection('home'), isActive: location.pathname === '/' },
     { label: 'Services', action: () => scrollToSection('tailored-business'), isActive: false },
     { label: 'Demo', to: '/demo', isActive: location.pathname === '/demo' },
-    { label: 'Pricing', action: () => scrollToSection('pricing'), isActive: false },
     { label: 'Contact', action: () => scrollToSection('contact'), isActive: false },
   ], [scrollToSection, location.pathname]);
 

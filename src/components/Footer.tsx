@@ -1,4 +1,5 @@
 
+
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCallback } from 'react';
 
@@ -67,12 +68,6 @@ const Footer = () => {
                 Demo
               </Link>
               <button 
-                onClick={() => scrollToSection('pricing')} 
-                className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
-              >
-                Pricing
-              </button>
-              <button 
                 onClick={() => scrollToSection('contact')} 
                 className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
               >
@@ -91,3 +86,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
