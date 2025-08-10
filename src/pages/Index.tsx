@@ -138,12 +138,6 @@ const Index = () => {
           animationDelay: '0.4s'
         }}>
             <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300">
-              <Link to="/demo" className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Try Demo
-              </Link>
-            </Button>
-            <Button asChild className="bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 px-8 py-3 text-base font-semibold rounded-full hover:scale-105 transition-all duration-300">
               <a href="#contact" className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 Book a Call
@@ -180,10 +174,10 @@ const Index = () => {
               </p>
               
               <Button asChild className="bg-cyan-400 hover:bg-cyan-500 text-slate-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
-                <Link to="/demo" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-slate-900" />
-                  Try our demo
-                </Link>
+                <a href="#contact" className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-slate-900" />
+                  Let's Connect
+                </a>
               </Button>
             </motion.div>
             

@@ -61,12 +61,6 @@ const Footer = () => {
               >
                 Services
               </button>
-              <Link 
-                to="/demo" 
-                className="block text-gray-400 hover:text-white transition-colors focus-visible responsive-text"
-              >
-                Demo
-              </Link>
               <button 
                 onClick={() => scrollToSection('contact')} 
                 className="block text-gray-400 hover:text-white transition-colors text-left focus-visible responsive-text"
