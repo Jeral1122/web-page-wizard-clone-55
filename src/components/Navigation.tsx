@@ -39,7 +39,6 @@ const Navigation = () => {
   const navigationItems = useMemo(() => [
     { label: 'Home', action: () => scrollToSection('home'), isActive: location.pathname === '/' },
     { label: 'Services', action: () => scrollToSection('tailored-business'), isActive: false },
-    { label: 'Demo', to: '/demo', isActive: location.pathname === '/demo' },
     { label: 'Contact', action: () => scrollToSection('contact'), isActive: false },
   ], [scrollToSection, location.pathname]);
 
@@ -66,27 +65,15 @@ const Navigation = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-6 lg:space-x-8">
                 {navigationItems.map((item) => (
-                  item.to ? (
-                    <Link 
-                      key={item.label}
-                      to={item.to} 
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus-visible ${
-                        item.isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <button 
-                      key={item.label}
-                      onClick={item.action} 
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus-visible ${
-                        item.isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  )
+                  <button 
+                    key={item.label}
+                    onClick={item.action} 
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus-visible ${
+                      item.isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
                 ))}
               </div>
             </div>
@@ -110,24 +97,13 @@ const Navigation = () => {
           <div className="md:hidden animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900/95 backdrop-blur-lg">
               {navigationItems.map((item) => (
-                item.to ? (
-                  <Link 
-                    key={item.label}
-                    to={item.to} 
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium focus-visible"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <button 
-                    key={item.label}
-                    onClick={item.action} 
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left focus-visible"
-                  >
-                    {item.label}
-                  </button>
-                )
+                <button 
+                  key={item.label}
+                  onClick={item.action} 
+                  className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left focus-visible"
+                >
+                  {item.label}
+                </button>
               ))}
             </div>
           </div>
