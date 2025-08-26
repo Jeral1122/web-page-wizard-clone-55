@@ -2,6 +2,7 @@
 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCallback } from 'react';
+import { Instagram } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -44,6 +45,15 @@ const Footer = () => {
             <p className="text-gray-400 mb-4 sm:mb-6 responsive-text">
               Reimagining business, one call at a time.
             </p>
+            <a 
+              href="https://www.instagram.com/vocly.ai/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <Instagram size={20} />
+              <span className="responsive-text">Follow us on Instagram</span>
+            </a>
           </div>
           
           <div>
