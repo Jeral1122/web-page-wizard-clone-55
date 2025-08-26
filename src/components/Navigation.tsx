@@ -55,10 +55,14 @@ const Navigation = () => {
             <div className="flex items-center">
               <button 
                 onClick={() => scrollToSection('home')} 
-                className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent font-bold text-2xl sm:text-3xl md:text-4xl hover:scale-105 transition-transform focus-visible"
+                className="hover:scale-105 transition-transform focus-visible"
                 aria-label="Go to home section"
               >
-                VOCLY AI
+                <img 
+                  src="/lovable-uploads/e1dfef1d-db1f-495a-b18c-c2a607b189a5.png" 
+                  alt="VOCLY AI Logo" 
+                  className="h-8 w-auto sm:h-10 md:h-12 object-contain"
+                />
               </button>
             </div>
             
