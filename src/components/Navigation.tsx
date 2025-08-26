@@ -61,7 +61,7 @@ const Navigation = () => {
                 <img 
                   src="/lovable-uploads/c6ed71e7-9689-4869-90a8-d867f10abcd9.png" 
                   alt="VOCLY AI Logo" 
-                  className="h-10 sm:h-12 md:h-16 w-auto"
+                  className="h-12 sm:h-14 md:h-20 w-auto"
                 />
               </button>
             </div>
