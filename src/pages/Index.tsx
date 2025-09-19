@@ -569,7 +569,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="calendly-inline-widget" data-url="https://calendly.com/muhammadjeralkhan/new-meeting" style={{
+            <div className="calendly-inline-widget" data-url="https://calendly.com/voclyai/new-meeting" style={{
             minWidth: '320px',
             height: '700px'
           }}></div>
